@@ -1,9 +1,11 @@
-import Image from 'next/image'
+import { MessageBoxUI } from '@/components/MessageBoxUI';
 
 export default function Home() {
+
+
   return (
     <>
-      <h2>Hi</h2>
+      <MessageBoxUI />
     </>
-  )
+  );
 }
