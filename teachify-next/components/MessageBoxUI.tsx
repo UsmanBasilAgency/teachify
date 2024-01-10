@@ -1,15 +1,23 @@
 "use client";
-import { useState } from "react";
+import { DarkModeContext } from "@/context/darkModeContext";
+import { DARK_MODE_CLASS_NAME } from "@/util/const";
+import { useContext } from "react";
 
 export const MessageBoxUI = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkModeContext = useContext(DarkModeContext);
+
+  if (!darkModeContext) {
+    throw new Error('MessageBoxUI must be used within a DarkModeContextProvider, No context provided!');
+  }
+
+  const { darkMode, updateDarkMode } = darkModeContext;
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    updateDarkMode(!darkMode);
     if (!darkMode) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add(DARK_MODE_CLASS_NAME);
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove(DARK_MODE_CLASS_NAME);
     }
   };
 
@@ -26,9 +34,8 @@ export const MessageBoxUI = () => {
             />
             <div className="block bg-gray-600 w-14 h-8 rounded-full dark:bg-gray-700"></div>
             <div
-              className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${
-                darkMode ? "transform translate-x-6" : ""
-              }`}
+              className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${darkMode ? "transform translate-x-6" : ""
+                }`}
             ></div>
           </div>
           <div
