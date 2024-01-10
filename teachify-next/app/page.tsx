@@ -12,8 +12,6 @@ export default async function Home() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  console.log(`This is the user: ${JSON.stringify(user)}`);
-
   if (user) {
     return (
       <DarkModeContextProvider>

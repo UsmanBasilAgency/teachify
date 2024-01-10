@@ -27,7 +27,6 @@ export default function Login() {
     const signUp = async (formData: FormData) => {
         "use server";
 
-        console.log(`This is the formData: ${formData}`);
         const origin = headers().get("origin");
         const email = formData.get('email') as string
         const password = formData.get('password') as string
