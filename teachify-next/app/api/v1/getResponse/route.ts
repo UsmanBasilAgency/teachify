@@ -1,5 +1,6 @@
 // pages/api/getLLMResponse.js
 
+// import { OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -35,6 +36,10 @@ export async function POST(req: NextRequest) {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
+
+    // const stream = OpenAIStream(openRouterResponse)
+ 
+    // return new StreamingTextResponse(stream)
 
   } catch (error) {
     console.error("Error:", error);
