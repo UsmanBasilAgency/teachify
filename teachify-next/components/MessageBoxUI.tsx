@@ -1,6 +1,6 @@
 "use client";
 import { DarkModeContext } from "@/context/darkModeContext";
-import { DARK_MODE_CLASS_NAME } from "@/util/const";
+import { DARK_MODE_CLASS_NAME } from "@/utils/const";
 import { useContext } from "react";
 
 export const MessageBoxUI = () => {

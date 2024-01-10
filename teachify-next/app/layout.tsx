@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DARK_MODE_CLASS_NAME } from "@/util/const";
+import { DARK_MODE_CLASS_NAME } from "@/utils/const";
 import { Inter } from 'next/font/google'
 import './globals.css'
 
