@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { DARK_MODE_CLASS_NAME } from "@/util/const";
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={DARK_MODE_CLASS_NAME}>
       <body className={inter.className}>{children}</body>
     </html>
   )
