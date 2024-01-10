@@ -1,7 +1,6 @@
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import LoadingIndicator from "@/components/LoadingIndicator";
 
 export default function Login() {
     const signIn = async (formData: FormData) => {
