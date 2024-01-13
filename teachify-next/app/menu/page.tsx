@@ -1,15 +1,21 @@
 'use client'
-import React, { useContext } from 'react';
+
+import { useContext } from 'react';
 import Sidebar from '@/components/Sidebar';
-import { DarkModeContext, DarkModeContextProvider } from '@/context/darkModeContext';
+import { DarkModeContext } from '@/context/darkModeContext';
 import { Card } from '@/components/Card';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Menu() {
-  return (
-    <DarkModeContextProvider>
-      <MenuContent />
-    </DarkModeContextProvider>
-  );
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  } else if (isAuthenticated) {
+    return <MenuContent />;
+  } else {
+    return null;
+  }
 }
 
 const MenuContent = () => {

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useContext } from "react";
-import { DarkModeContext } from "@/context/darkModeContext";
-import { DARK_MODE_CLASS_NAME } from "@/utils/const";
+import { useState } from "react";
+import { useDarkMode } from "@/hooks/useDarkMode";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from 'next/navigation';
@@ -10,30 +9,13 @@ import { useRouter } from 'next/navigation';
 const supabase = createClient();
 
 export default function Sidebar() {
-  const darkModeContext = useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const router = useRouter();
-
-  if (!darkModeContext) {
-    throw new Error(
-      "Sidebar must be used within a DarkModeContextProvider, No context provided!"
-    );
-  }
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     console.log("Sidebar Open:", !isSidebarOpen); // To check the state change
-  };
-
-  const { darkMode, updateDarkMode } = darkModeContext;
-
-  const toggleDarkMode = () => {
-    updateDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add(DARK_MODE_CLASS_NAME);
-    } else {
-      document.documentElement.classList.remove(DARK_MODE_CLASS_NAME);
-    }
   };
 
   const handleSignOut = async () => {

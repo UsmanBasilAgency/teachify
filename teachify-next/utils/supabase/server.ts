@@ -1,7 +1,7 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
+const createClient = (cookieStore: ReturnType<typeof cookies>) => {
     return createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -31,4 +31,20 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
             },
         }
     )
+}
+
+async function isAuthenticated() {
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
+    return !(user === null || user === undefined);
+}
+
+export {
+    createClient,
+    isAuthenticated,
 }
