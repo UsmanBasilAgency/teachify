@@ -72,7 +72,7 @@ export default function Login() {
         <section className="">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a href="/" className="text-blue-700 flex items-center mb-6 text-2xl font-semibold text-gray-900">
-                    Litlinks
+                    Teachify
                 </a>
                 {loading && <LoadingIndicator />}
                 <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
