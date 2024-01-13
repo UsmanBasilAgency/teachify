@@ -1,11 +1,17 @@
 "use client";
+
 import React, { useState, useContext } from "react";
 import { DarkModeContext } from "@/context/darkModeContext";
 import { DARK_MODE_CLASS_NAME } from "@/utils/const";
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/client";
+import { useRouter } from 'next/navigation';
+
+const supabase = createClient();
 
 export default function Sidebar() {
   const darkModeContext = useContext(DarkModeContext);
+  const router = useRouter();
 
   if (!darkModeContext) {
     throw new Error(
@@ -29,6 +35,12 @@ export default function Sidebar() {
       document.documentElement.classList.remove(DARK_MODE_CLASS_NAME);
     }
   };
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+    console.log('Signed Out')
+    router.push('/login')
+  }
 
   return (
     <div className="flex justify-between items-center p-4">
@@ -67,9 +79,8 @@ export default function Sidebar() {
             />
             <div className="block bg-gray-600 w-14 h-8 rounded-full dark:bg-gray-700"></div>
             <div
-              className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${
-                darkMode ? "transform translate-x-6" : ""
-              }`}
+              className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${darkMode ? "transform translate-x-6" : ""
+                }`}
             ></div>
           </div>
           <div
@@ -83,9 +94,8 @@ export default function Sidebar() {
 
       <aside
         id="default-sidebar"
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
@@ -147,6 +157,7 @@ export default function Sidebar() {
                 <span className="flex-1 ms-3 whitespace-nowrap">Settings</span>
               </a>
             </li>
+
             <li>
               <Link
                 href="/login"
@@ -170,6 +181,7 @@ export default function Sidebar() {
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
               </Link>
             </li>
+
             <li>
               <a
                 href="#"
@@ -189,6 +201,27 @@ export default function Sidebar() {
                 <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
               </a>
             </li>
+
+            <li>
+                <a
+                  onClick={handleSignOut}
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                >
+                  <svg
+                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                  >
+                    <g data-name="37-User">
+                      <path d="M10 10V8a6 6 0 0 1 12 0v2a1 1 0 0 0 1 1v2h2v-2a2 2 0 0 0-1-1.73V8A8 8 0 0 0 8 8v1.27A2 2 0 0 0 7 11v2a2 2 0 0 0 1 1.75 8.07 8.07 0 0 0 4 6.16v1.39L4.7 25c-.91.23-4.7 1.37-4.7 4v2a1 1 0 0 0 1 1h14v-2H2v-1c0-.78 1.92-1.7 3.24-2h.11l8-3a1 1 0 0 0 .65-1v-2.69a1 1 0 0 0-.57-.9A6 6 0 0 1 10 14a1 1 0 0 0-1-1v-2a1 1 0 0 0 1-1zM31.71 22.29l-3-3-1.41 1.41 1.29 1.3H21v2h7.59l-1.29 1.29 1.41 1.41 3-3a1 1 0 0 0 0-1.41z" /><path d="M23 27a1 1 0 0 1-1 1h-3V18h3a1 1 0 0 1 1 1v1h2v-1a3 3 0 0 0-3-3h-4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a3 3 0 0 0 3-3v-1h-2z" />
+                    </g>
+                  </svg>
+                  <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                </a>
+            </li>
+
           </ul>
         </div>
       </aside>

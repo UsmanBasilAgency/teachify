@@ -1,4 +1,5 @@
 "use client";
+
 import { ChangeEvent, useState } from "react";
 import { Message } from '@/types/types';
 import Sidebar from "./Sidebar";
