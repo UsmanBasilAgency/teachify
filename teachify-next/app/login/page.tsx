@@ -28,7 +28,7 @@ export default function Login() {
         if (res.error) {
             setError(res.error.toString())
         } else {
-            router.push("/")
+            router.push("/menu")
         }
 
         setLoading(false)
@@ -71,7 +71,7 @@ export default function Login() {
     return (
         <section className="">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <a href="/" className="text-blue-700 flex items-center mb-6 text-2xl font-semibold text-gray-900">
+                <a href="/menu" className="text-blue-700 flex items-center mb-6 text-2xl font-semibold text-gray-900">
                     Teachify
                 </a>
                 {loading && <LoadingIndicator />}
