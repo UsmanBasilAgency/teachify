@@ -4,9 +4,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 export const middleware = async (request: NextRequest) => {
   // Create an unmodified response
   let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
+    request: request,
   })
 
   const supabase = createServerClient(
