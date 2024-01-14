@@ -1,16 +1,33 @@
-// pages/api/getLLMResponse.js
-
-// import { OpenAIStream, StreamingTextResponse } from "ai";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
+import { promises as fs } from 'fs';
+import path from 'path';
+
+async function getCourseOutlineContent(course: string | null): Promise<string | null> {
+  if (!course) {
+    return null
+  }
+
+  try {
+    const filePath = path.join(process.cwd(), 'outlines', `${course}.txt`);
+    const fileContent = await fs.readFile(filePath, 'utf8');
+
+    return fileContent;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
 
 export async function POST(req: NextRequest) {
-  const { userInput } = await req.json()
-  if (!userInput) {
-    return new Response(JSON.stringify({ message: "Error! No User Input!" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+  const { messages, course } = await req.json();
+  const response = await getCourseOutlineContent(course);
+
+  const updatedMessages = response != null ? [{
+    role: "user",
+    content: response
+  }, ...messages] : messages;
+
   try {
     const openRouterResponse = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -22,23 +39,18 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           model: "mistralai/mistral-7b-instruct",
-          messages: [{ role: "user", content: userInput }],
+          stream: true,
+          messages: updatedMessages,
         }),
       }
     );
+
     if (!openRouterResponse.ok) {
       throw new Error("Failed to fetch from OpenRouter");
     }
-    const responseData = await openRouterResponse.json();
-    const content = responseData.choices[0]?.message?.content;
 
-    return new Response(JSON.stringify({ content }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-
-    // const stream = OpenAIStream(openRouterResponse)
-    // return new StreamingTextResponse(stream)
+    const stream = OpenAIStream(openRouterResponse)
+    return new StreamingTextResponse(stream)
 
   } catch (error) {
     console.error("Error:", error);

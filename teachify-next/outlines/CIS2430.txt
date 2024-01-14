@@ -1,0 +1,105 @@
+CIS*4800 – Computer Graphics
+Course Outline – Winter 2022
+Instructor: David Calvert
+Office : Reynolds Building, Room 2201
+email: dcalvert@uoguelph.ca
+Timetable
+Lecture: Tuesday, Thursday, 11:30-1:00, ANNU 156.
+Course Web Page:
+http://courselink.uoguelph.ca
+
+Marking Scheme
+1. Programming Assignments: 80%
+2. Midterm Examination: 20%
+Notes:
+• All assignments will be posted on the Courselink page.
+• Assignment details will be discussed in class. It is your responsibility to learn and understand
+these details.
+• Assignments will be developed using WebGL, three.js, and the Python HTTP server. They
+will be tested using the chrome browser. It is your responsibility to develop and test your
+programs using this platform. If the assignment code does not run correctly on this platform
+then you will lose marks on the assignment.
+• There is no group work in the course. It is academic misconduct to collaborate on assignments
+or represent other student’s work as your own. There are penalties for doing this. All
+submitted code will be electronically checked for cheating. All parties to cheating will be
+reported to the Director of the School of Computer Science as participants in academic
+misconduct. See Academic Misconduct in Section VIII of the Undergraduate Calendar.
+• Code which is submitted and does not execute will be given a mark of zero.
+• Failure to submit assignments correctly will result in a substantial loss of marks. Assignments
+will be submitted through the Courselink site.
+
+Lecture Topics
+1. Geometry and matrix algebra for computer graphics
+2. Geometric modelling
+
+3. Visible surface detection
+4. Curves and surfaces
+5. Rendering and illumination models
+6. Vertex and Pixel shaders
+
+Semester Schedule
+• Assignment 1 due Friday, Jan. 26
+• Assignment 2 due Friday, Feb. 9
+• Midterm – Monday, Feb. 12 in class
+• Assignment 3 due Friday, Mar. 8
+• Assignment 4 due Friday, Mar. 22
+
+Calendar Description
+This course is an introduction to computer graphics. Topics include graphics programming concepts, geometrical transformations, viewing 3-D projections, raster graphics, sculptured surfaces,
+visible surface determination, image processing and other special topics. Practical issues will be
+covered by assignment using currently available graphics equipment.
+Prerequisite(s): (CIS*3750 or CIS*3760), CIS*3110
+
+E-mail Communication
+As per university regulations, all students are required to check their ¡mail.uoguelph.ca¿ e-mail
+account regularly: e-mail is the official route of communication between the University and its
+students.
+
+When You Cannot Meet a Course Requirement
+When you find yourself unable to meet an in-course requirement because of illness or compassionate
+reasons, please advise the course instructor (or designated person, such as a teaching assistant) in
+writing, with your name, id number, and e-mail contact. See the undergraduate calendar for
+information on regulations and procedures for Academic Consideration.
+
+Drop Date
+Students will have until the last day of classes to drop courses without academic penalty. The regulations and procedures for course registration are available in their respective Academic Calendars.
+
+Copies of out-of-class assignments
+Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may be asked
+to resubmit work at any time.
+
+Accessibility
+The University promotes the full participation of students who experience disabilities in their academic programs. To that end, the provision of academic accommodation is a shared responsibility
+between the University and the student.
+When accommodations are needed, the student is required to first register with Student Accessibility Services (SAS). Documentation to substantiate the existence of a disability is required,
+however, interim accommodations may be possible while that process is underway.
+Accommodations are available for both permanent and temporary disabilities. It should be
+noted that common illnesses such as a cold or the flu do not constitute a disability.
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance.
+More information: www.uoguelph.ca/sas
+
+Academic Misconduct
+The University of Guelph is committed to upholding the highest standards of academic integrity
+and it is the responsibility of all members of the University community – faculty, staff, and students
+– to be aware of what constitutes academic misconduct and to do as much as possible to prevent
+academic offences from occurring. University of Guelph students have the responsibility of abiding
+by the University’s policy on academic misconduct regardless of their location of study; faculty, staff
+and students have the responsibility of supporting an environment that discourages misconduct.
+Students need to remain aware that instructors have access to and the right to use electronic and
+other means of detection.
+Please note: Whether or not a student intended to commit academic misconduct is not relevant
+for a finding of guilt. Hurried or careless submission of assignments does not excuse students from
+responsibility for verifying the academic integrity of their work before submitting it.
+Students who are in any doubt as to whether an action on their part could be construed as an
+academic offence should consult with a faculty member or faculty advisor.
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar.
+
+Recording of Materials
+Presentations which are made in relation to course work—including lectures cannot be recorded or
+copied without the permission of the presenter, whether the instructor, a classmate or guest lecturer.
+Material recorded with permission is restricted to use for that course unless further permission is
+granted.
+
+Resources
+The Academic Calendars are the source of information about the University of Guelph’s procedures,
+policies and regulations which apply to undergraduate, graduate and diploma programs.

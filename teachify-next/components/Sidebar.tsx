@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useContext } from "react";
-import { DarkModeContext } from "@/context/darkModeContext";
-import { DARK_MODE_CLASS_NAME } from "@/utils/const";
+import { useState } from "react";
+import { useDarkMode } from "@/hooks/useDarkMode";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from 'next/navigation';
@@ -10,14 +9,8 @@ import { useRouter } from 'next/navigation';
 const supabase = createClient();
 
 export default function Sidebar() {
-  const darkModeContext = useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const router = useRouter();
-
-  if (!darkModeContext) {
-    throw new Error(
-      "Sidebar must be used within a DarkModeContextProvider, No context provided!"
-    );
-  }
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
@@ -25,18 +18,8 @@ export default function Sidebar() {
     console.log("Sidebar Open:", !isSidebarOpen); // To check the state change
   };
 
-  const { darkMode, updateDarkMode } = darkModeContext;
-
-  const toggleDarkMode = () => {
-    updateDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add(DARK_MODE_CLASS_NAME);
-    } else {
-      document.documentElement.classList.remove(DARK_MODE_CLASS_NAME);
-    }
-  };
-
-  const handleSignOut = async () => {
+  const handleSignOut = async (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault()
     await supabase.auth.signOut()
     console.log('Signed Out')
     router.push('/login')
@@ -204,6 +187,7 @@ export default function Sidebar() {
 
             <li>
                 <a
+                  href=""
                   onClick={handleSignOut}
                   className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
