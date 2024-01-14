@@ -1,16 +1,10 @@
 // pages/api/getLLMResponse.js
 
-// import { OpenAIStream, StreamingTextResponse } from "ai";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { userInput } = await req.json()
-  if (!userInput) {
-    return new Response(JSON.stringify({ message: "Error! No User Input!" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+  const { messages } = await req.json()
   try {
     const openRouterResponse = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -22,23 +16,17 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
           model: "mistralai/mistral-7b-instruct",
-          messages: [{ role: "user", content: userInput }],
+          stream: true,
+          messages
         }),
       }
     );
     if (!openRouterResponse.ok) {
       throw new Error("Failed to fetch from OpenRouter");
     }
-    const responseData = await openRouterResponse.json();
-    const content = responseData.choices[0]?.message?.content;
 
-    return new Response(JSON.stringify({ content }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-
-    // const stream = OpenAIStream(openRouterResponse)
-    // return new StreamingTextResponse(stream)
+    const stream = OpenAIStream(openRouterResponse)
+    return new StreamingTextResponse(stream)
 
   } catch (error) {
     console.error("Error:", error);
