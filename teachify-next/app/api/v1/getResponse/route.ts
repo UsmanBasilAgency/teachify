@@ -1,7 +1,7 @@
-// pages/api/getLLMResponse.js
-
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
+import { promises as fs } from 'fs';
+import path from 'path';
 
 async function getCourseOutlineContent(course: string | null): Promise<string | null> {
   if (!course) {
@@ -9,9 +9,10 @@ async function getCourseOutlineContent(course: string | null): Promise<string | 
   }
 
   try {
-    const response = await fetch(`http://localhost:3000/api/v1/getCourseData?course=${course}`);
-    const data = await response.json();
-    return data.fileContent as string;
+    const filePath = path.join(process.cwd(), 'outlines', `${course}.txt`);
+    const fileContent = await fs.readFile(filePath, 'utf8');
+
+    return fileContent;
   } catch (error) {
     console.error(error);
     return null;
