@@ -18,7 +18,8 @@ export default function Sidebar() {
     console.log("Sidebar Open:", !isSidebarOpen); // To check the state change
   };
 
-  const handleSignOut = async () => {
+  const handleSignOut = async (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault()
     await supabase.auth.signOut()
     console.log('Signed Out')
     router.push('/login')
@@ -186,6 +187,7 @@ export default function Sidebar() {
 
             <li>
                 <a
+                  href=""
                   onClick={handleSignOut}
                   className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 >
