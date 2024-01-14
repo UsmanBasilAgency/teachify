@@ -3,8 +3,30 @@
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
 
+async function getCourseOutlineContent(course: string | null): Promise<string | null> {
+  if (!course) {
+    return null
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/getCourseData?course=${course}`);
+    const data = await response.json();
+    return data.fileContent as string;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 export async function POST(req: NextRequest) {
-  const { messages } = await req.json()
+  const { messages, course } = await req.json();
+  const response = await getCourseOutlineContent(course);
+
+  const updatedMessages = response != null ? [{
+    role: "user",
+    content: response
+  }, ...messages] : messages;
+
   try {
     const openRouterResponse = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -17,10 +39,11 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           model: "mistralai/mistral-7b-instruct",
           stream: true,
-          messages
+          messages: updatedMessages,
         }),
       }
     );
+
     if (!openRouterResponse.ok) {
       throw new Error("Failed to fetch from OpenRouter");
     }

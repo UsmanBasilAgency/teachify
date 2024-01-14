@@ -3,9 +3,16 @@
 import { useChat } from 'ai/react';
 import Sidebar from "./Sidebar";
 
-export const MessageBoxUI = () => {
+interface MessageBoxUIProps {
+  course: string | string[] | undefined;
+}
+
+export const MessageBoxUI = ({ course }: MessageBoxUIProps) => {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: '/api/v1/getResponse'
+    api: '/api/v1/getResponse',
+    body: {
+      course: course,
+    }
   });
 
   return (

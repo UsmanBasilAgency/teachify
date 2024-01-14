@@ -14,7 +14,7 @@ interface DarkModeContextProviderProps {
     children: ReactNode;
 }
 
-const DarkModeContext = createContext<DarkModeState | undefined>(undefined);
+const DarkModeContext = createContext<DarkModeState | null>(null);
 
 
 const DarkModeContextProvider: React.FC<DarkModeContextProviderProps> = ({ children }) => {
