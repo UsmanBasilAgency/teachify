@@ -1,105 +1,602 @@
-CIS*4800 – Computer Graphics
-Course Outline – Winter 2022
-Instructor: David Calvert
-Office : Reynolds Building, Room 2201
-email: dcalvert@uoguelph.ca
-Timetable
-Lecture: Tuesday, Thursday, 11:30-1:00, ANNU 156.
-Course Web Page:
-http://courselink.uoguelph.ca
-
-Marking Scheme
-1. Programming Assignments: 80%
-2. Midterm Examination: 20%
-Notes:
-• All assignments will be posted on the Courselink page.
-• Assignment details will be discussed in class. It is your responsibility to learn and understand
-these details.
-• Assignments will be developed using WebGL, three.js, and the Python HTTP server. They
-will be tested using the chrome browser. It is your responsibility to develop and test your
-programs using this platform. If the assignment code does not run correctly on this platform
-then you will lose marks on the assignment.
-• There is no group work in the course. It is academic misconduct to collaborate on assignments
-or represent other student’s work as your own. There are penalties for doing this. All
-submitted code will be electronically checked for cheating. All parties to cheating will be
-reported to the Director of the School of Computer Science as participants in academic
-misconduct. See Academic Misconduct in Section VIII of the Undergraduate Calendar.
-• Code which is submitted and does not execute will be given a mark of zero.
-• Failure to submit assignments correctly will result in a substantial loss of marks. Assignments
-will be submitted through the Courselink site.
-
-Lecture Topics
-1. Geometry and matrix algebra for computer graphics
-2. Geometric modelling
-
-3. Visible surface detection
-4. Curves and surfaces
-5. Rendering and illumination models
-6. Vertex and Pixel shaders
-
-Semester Schedule
-• Assignment 1 due Friday, Jan. 26
-• Assignment 2 due Friday, Feb. 9
-• Midterm – Monday, Feb. 12 in class
-• Assignment 3 due Friday, Mar. 8
-• Assignment 4 due Friday, Mar. 22
-
-Calendar Description
-This course is an introduction to computer graphics. Topics include graphics programming concepts, geometrical transformations, viewing 3-D projections, raster graphics, sculptured surfaces,
-visible surface determination, image processing and other special topics. Practical issues will be
-covered by assignment using currently available graphics equipment.
-Prerequisite(s): (CIS*3750 or CIS*3760), CIS*3110
-
-E-mail Communication
-As per university regulations, all students are required to check their ¡mail.uoguelph.ca¿ e-mail
-account regularly: e-mail is the official route of communication between the University and its
-students.
-
-When You Cannot Meet a Course Requirement
-When you find yourself unable to meet an in-course requirement because of illness or compassionate
-reasons, please advise the course instructor (or designated person, such as a teaching assistant) in
-writing, with your name, id number, and e-mail contact. See the undergraduate calendar for
-information on regulations and procedures for Academic Consideration.
-
-Drop Date
-Students will have until the last day of classes to drop courses without academic penalty. The regulations and procedures for course registration are available in their respective Academic Calendars.
-
-Copies of out-of-class assignments
-Keep paper and/or other reliable back-up copies of all out-of-class assignments: you may be asked
-to resubmit work at any time.
-
-Accessibility
-The University promotes the full participation of students who experience disabilities in their academic programs. To that end, the provision of academic accommodation is a shared responsibility
-between the University and the student.
-When accommodations are needed, the student is required to first register with Student Accessibility Services (SAS). Documentation to substantiate the existence of a disability is required,
-however, interim accommodations may be possible while that process is underway.
-Accommodations are available for both permanent and temporary disabilities. It should be
-noted that common illnesses such as a cold or the flu do not constitute a disability.
-Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance.
-More information: www.uoguelph.ca/sas
-
-Academic Misconduct
+CIS2430Object Oriented Programming
+land acknowledgment
+The Dish With One Spoon Covenant speaks to our collective responsibility to steward and sus
+tain the land and environment in which we live and work so that all peoples present and future
+may benefit from the sustenance it provides As we continue to strive to strengthen our relation
+ships with and continue to learn from our Indigenous neighbours we recognize the partnerships
+and knowledge that have guided the learning and research conducted in and for this class We
+acknowledge that the University of Guelph resides in the ancestral and treaty lands of several In
+digenous peoples including the Attawandaron people and the Mississaugas of the Credit and we
+recognize and honour our Anishinaabe Haudenosaunee and Métis neighbours We acknowledge
+that the work we do here occurs on their traditional lands so that we might work to build lasting
+partnerships that respect honour and value the culture traditions and wisdom of those who have
+lived here since time immemorial
+course description
+CIS2430 is a 5 credit course
+This course introduces the Object Oriented OO approach to programming and algorithm design
+Topics will include the creation and use of objects from class libraries user defined objects inherit
+ance modularity generic code components collections and containers and an introduction to OO
+design methodologies
+CIS2500 is a prerequisite for this course CIS2430 relies on a strong understanding of memory
+management and pointers
+The Academic Calendars are the source of information about the University of Guelph’s procedures
+policies and regulations which apply to undergraduate graduate and diploma programs
+learning outcomes
+By the end of this course you should be able to
+• Identify the major characteristics of different programming paradigms procedural functional
+logical and objectoriented
+• Differentiate between procedural and objectoriented paradigms
+• Design and implement classes for an objectoriented program demonstrating correct use
+of encapsulation constructors method overloading class invariants accessors mutators
+instance variables and class variables
+• Construct class hierarchies that maximize code reuse through inheritance while accommod
+ating differences through method overriding
+• Describe polymorphism and identify situations in which it is used in an OO program
+• Use polymorphism abstract methodsclasses and interfaces effectively to produce generic
+code
+• Read and understand class diagrams written in UML Unified Modeling Language
+• Compare eventdriven programming with controldriven programming
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+communication
+email
+cis2430socsuoguelphca
+Do not send course related email to instructors’ personal email addresses
+Teams
+CIS 2430 Fall 2023
+you will be added automatically to the course team
+website
+moodlesocsuoguelphca
+times
+Lectures
+section 01 TTh 400520pm ROZH 103
+section 02 TTh 100220pm ALEX 100
+Tutorials
+101201 Friday 830 ROZH 105
+102202 Wednesday 1230 MINS 106
+103203 Friday 1230 MCKN 223
+104204 Wednesday 230 GRHM 2310
+105205 Monday 1230 GRHM 2310
+106206 Monday 830 ROZH 105
+assessment weights
+10
+Independent Practice
+6 Practice Problems 2 each Drop lowest
+15
+Written Homework
+3 Homework Assignments 5 each
+35
+Coding Assignments
+3 Coding assignments 10 10 15
+10
+In Class Quizzes
+10 quizzes 1 each
+30
+Final Exam
+In person December 11 at 1130 am
+textbook
+Open Text
+SCIOER Introduction to Object Oriented Programming
+details on course website
+open sourcefree
+The SCIOER text contains prerecorded videos interactive tutorials worked examples and written
+notes The etext provides a table of contents that indicates which topics will be covered in each
+lecture Use the etext to introduce yourself to the topics ahead of each lecture and tutorial
+Lectures and Tutorials
+• Lectures Lectures will consist of a short review of the topics along with handson activities
+Lectures will not be recorded You can use the resources in the etext if you are unable to
+attend a lecture
+• In Person Tutorials Lab sections will be used as inperson tutorials Some course content will
+only be covered in those tutorials Inperson tutorials will not be recorded
+• Bring your laptop to both lectures and tutorials as you will frequently be asked to write small bits of code
+during them
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+duedates
+This course has many graded components With the exception of inclass quizzes work is due at
+1159 pm on the due date shown
+Sept 10
+Independent Practice 1
+Sept 14
+InClass Quiz
+Sept 17
+Written Homework 1
+Sept 21
+InClass Quiz
+Sept 24
+Independent Practice 2
+Sept 24
+Written Homework 2
+Sept 28
+InClass Quiz
+Oct 1
+Coding Assignment 1
+late submissionredo Oct 29
+Oct 5
+InClass Quiz
+Oct 8
+Independent Practice 3
+Oct 15
+Independent Practice 4
+Oct 19
+InClass Quiz
+Oct 22
+Written Homework 3
+Oct 26
+InClass Quiz
+Oct 29
+Coding Assignment 2
+late submissionredo Nov 19
+Nov 2
+InClass Quiz
+Nov 5
+Independent Practice 5
+Nov 9
+InClass Quiz
+Nov 12
+Independent Practice 6
+Nov 16
+InClass Quiz
+Nov 19
+Coding Assignment 3
+late submissionredo Nov 26
+Nov 23
+InClass Quiz
+TBA
+Final Exam
+assignment grading
+• Independent practice assignments and inclass quizzes are machinegraded
+• Written homework will be graded by the instructional team
+• Coding assignments are graded partly by machine via and autograder and partly through
+scheduled interviewdemo appointments
+– There are four weeks in the semester during which coding assignments will be graded
+– You may submit exactly one assignment for grading to any grading period A repository
+with multiple assignments in it will be given a grade of 0
+– Assignments must be submitted by the due date in order to be graded
+– A coding assignment may be submitted in the next grading period at no penalty however
+that is not advised as it will be extremely difficult to complete all three coding assign
+ments in that case
+– Work to be graded must be committed and pushed to the required git repository by 1159 PM
+on the Sunday prior to the grading period An automated script will download your sub
+missions at 1201 AM on Monday
+All coding assignment grading includes a 11 appointment over MSTeams Make sure you have time during
+the week after the due date to schedule an appointment
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+Academic Consideration for Coursework
+Regrades
+You can ask for a regrade on coursework only if errors were made in the grading
+of your work It is not a grading error if you simply got a lower grade than you
+were expecting To request a regrade you must email a detailed explanation of
+exactly what the grading error is to the course email address within 5 days of
+receiving your grade Be specific about what you believe was graded incorrectly
+Your submission will be completely regraded A regrade could result in your grade
+being reduced
+Coding
+Assignments
+This course has a flexible submission policy for coding assignments If you can
+not meet the original submission deadline for a coding assignment you may sub
+mit that work during the following grading period at no penalty You may use this
+flexibility to redo an assignment if you wish However you may not submit two assign
+ments in a single grading period Use this flexibility as a last resort If you use this
+flexibility too early in the course you greatly limit your time to complete all three
+coding assignments
+Independent
+Practice
+If you cannot complete an independent practice assignment by the deadline you
+can make a request via email for academic consideration to have a later due date
+Your request must be made at least 18 hours prior to the submission deadline
+and there must be clear evidence that you have been working on the independ
+ent practice assignment Requests made without these two prerequisites will be
+denied Your request must include an explanation of the reasons for the request
+but does not need to include personal details
+Written
+Homework
+If you cannot complete a written homework assignment by the deadline you can
+make a request via email for academic consideration to have a later due date
+Your request must be made at least 18 hours prior to the submission deadline
+and your email request must include clear evidence that you have been work
+ing towards completing the assignment Requests made without these two pre
+requisites will be deniedYour request must include an explanation of the reasons
+for the request but does not need to include personal details
+InClass
+Quizzes
+Quizzes missed for reasons requiring academic consideration may be made up
+on the Tuesday following the quiz Makeup quiz times will be posted on the course
+website You must notify the course instructors by email of your absence at least
+5 hours BEFORE the scheduled quiz in order to qualify to a makeup The makeup
+quiz may be a different format than the inclass quiz
+If you feel that you merit academic consideration beyond the builtin flexibility of this course you
+must provide documentation and written explanation to the instructor In your request please
+provide evidence that you have been working steadily on the course work to show that your request
+is not made as a result of procrastination If you make multiple requests during the semester you
+may be asked for additional documentation
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+topics by week
+A more extensive list of topics and dates is found in the SCIOER textbook
+WEEK
+Lecture
+In Person Tutorials
+Week 0
+OO vs Procedural Programming
+Installing the SCIOER text drop in
+Week 1
+Classes Objects Messages
+Git Main Method
+Week 2
+Methods AggregationExceptions
+Using VS Code User Input
+Week 3
+Accessors  Mutators Static keyword
+checkstyle ArrayList
+Week 4
+Single Responsibility Testing
+Junit
+Week 5
+Collections and Data Structures
+no tutorials this week
+Week 6
+Streams Text Files Serialization
+TryCatch Binary Files
+Week 7
+Polymorphism
+Programmer Defined Exceptions
+Week 8
+Event Driven Programming
+Customizing gradle
+Week 9
+Graphical User Interfaces
+Graphical User Interfaces
+Week 10
+Debugging Strategies Refactoring
+Integrated Debugging
+Week 11
+Best Practices Functional Programs
+TBA
+Week 12
+Generics Exam Review
+no tutorial this week
+TBA
+Final Exam inperson
+computing requirements
+You should have a laptop to bring to lectures and tutorials All coursework will be completed independ
+ently using the Java programming language Third party libraries and frameworks require explicit
+approval of the course instructor Keep reliable backup copies of all assignments as you may be
+asked to resubmit work at any time
+In particular we will use the following programming tools and languages all of which are pre
+installed on the SCIOER etext
+• Open JDK 17
+• Gradle 8
+• Gitlab via gitlabsocsuoguelphca
+• Junit 5
+You will be expected to demonstrate your knowledge without the use of an IDE An IDE hides much
+of the process from beginners and prevents learning We recommend using an editor such as
+Sublime or a less complex IDE such as VSCode
+You must have access to a computing device and internet connection that allows you to share your
+screen in online meetings while having a voice conversation While sharing your screen you will be
+asked to run your java programs so the device you use must be capable of compiling and running
+your java assignments You will not be required to share a video feed
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+academic integrity
+• The UofG Academic Misconduct Policy in the Undergraduate Calendar
+• The SOCS Academic Integrity Unit Login with your central login credentials
 The University of Guelph is committed to upholding the highest standards of academic integrity
-and it is the responsibility of all members of the University community – faculty, staff, and students
-– to be aware of what constitutes academic misconduct and to do as much as possible to prevent
-academic offences from occurring. University of Guelph students have the responsibility of abiding
-by the University’s policy on academic misconduct regardless of their location of study; faculty, staff
-and students have the responsibility of supporting an environment that discourages misconduct.
-Students need to remain aware that instructors have access to and the right to use electronic and
-other means of detection.
-Please note: Whether or not a student intended to commit academic misconduct is not relevant
-for a finding of guilt. Hurried or careless submission of assignments does not excuse students from
-responsibility for verifying the academic integrity of their work before submitting it.
-Students who are in any doubt as to whether an action on their part could be construed as an
-academic offence should consult with a faculty member or faculty advisor.
-The Academic Misconduct Policy is detailed in the Undergraduate Calendar.
-
-Recording of Materials
-Presentations which are made in relation to course work—including lectures cannot be recorded or
-copied without the permission of the presenter, whether the instructor, a classmate or guest lecturer.
-Material recorded with permission is restricted to use for that course unless further permission is
-granted.
-
-Resources
-The Academic Calendars are the source of information about the University of Guelph’s procedures,
-policies and regulations which apply to undergraduate, graduate and diploma programs.
+and it is the responsibility of all members of the University community faculty staff and students
+to be aware of what constitutes academic misconduct and to do as much as possible to prevent
+academic offences from occurring University of Guelph students have the responsibility of abiding
+by the University’s policy on academic misconduct regardless of their location of study faculty staff
+and students have the responsibility of supporting an environment that discourages misconduct
+All students who take a SOCS course must pass the Academic Integrity Self Test
+For educational purposes instructors impose conditions on assignments that may limit students’
+permission to collaborate with others or to utilize external sources including but not limited to
+software data images text etc This includes any interaction with a large language model such
+as ChatGPT Any permitted utilization must be done with proper references Aiding and abetting
+is a punishable offence students must be careful not to help others commit offences by giving
+out solutions or providing to access computer accounts Instructors may use automated tools to
+detect possible cases of academic misconduct
+The use of an AILarge Language Model eg ChatGPT will be required for specific assignments
+in this course When use of the tool is required it will be explicitly noted in the assignment instruc
+tions Any use of an AI for this course that is not specifically identified in an assignment description
+constitutes an academic integrity violation
+Please note Whether or not a student intended to commit academic misconduct is not relevant for
+a finding of guilt Hurried or careless submission of assignments does not excuse students from
+responsibility for verifying the academic integrity of their work before submitting it Students who
+are in any doubt as to whether an action on their part could be construed as an academic offence
+should consult with a faculty member
+tldr
+1 do not share your assignment solution with anyone even if it is only an outline
+2 do not use an AI to solve your assignments If you cannot explain your work in person you
+are likely to get a zero on the assignment
+3 do not pay a third party to do your assignments If you cannot explain your work in person
+you are likely to get a zero on the assignment
+4 if you use any sources other than the course textbook to help you with assignments cite
+them
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+general policies
+• CommunicationEmailPolicy Major announcements will be sent directly to your university email
+address As per university regulations all students are required to check their University of
+Guelph email account regularly email is the official route of communication between the
+University and its students
+• Recording of Materials Presentations which are made in relation to course work including lec
+tures cannot be recorded or copied without the permission of the presenter whether the
+instructor classmate or guest lecturer Material recorded with permission is restricted to
+use for that course and may not be posted on any public space unless further permission is
+granted
+• Accommodation of Religious Obligations if you are unable to meet an incourse requirement due
+to religious obligations please email the instructor within two weeks of the start of the semester
+to make alternate arrangements See the academic calendar for information on regulations
+and procedures for Academic Accommodation of Religious Obligations
+• Instructors Role and Responsibility to Students The instructor’s role is to develop and deliver
+course material in ways that facilitate learning for a variety of students A variety of ma
+terials including notes and recorded lectures will be made available on the course website
+and via the SCIOER textbook
+• Students Learning Responsibilities Students are expected to take advantage of the learning op
+portunities provided Students especially those having difficulty with the course content
+should also make use of other resources recommended by the instructor Students who
+fall behind due to illness work or extracurricular activities are advised inform the instructor
+about their situation as early as possible This will allow the instructor to recommend extra
+resources in a timely manner andor provide consideration if warranted
+• Accessibility The University of Guelph is committed to creating a barrierfree environment
+Providing services for students is a shared responsibility among students faculty and admin
+istrators This relationship is based on respect of individual rights the dignity of the individual
+and the University community’s shared commitment to an open and supportive learning en
+vironment Students requiring service or accommodation whether due to an identified on
+going disability or for a shortterm disability should contact Student Accessibility Services
+SAS as soon as possible For more information contact SAS at 15198244120 ext 56208
+or accessibilityuoguelphca or wellnessuoguelphcaaccessibility
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+code of conduct
+Our learning environment must be a safe and welcoming environment for all regardless of ethnicity
+gender sexual orientation ability socioeconomic status andor religion or lack thereof This code
+of conduct outlines the expectations for all participants 1
+• Expected Behaviour Members of our learning community are expected to
+ participate in an authentic and active way and in doing so contribute to the health and
+value of our community
+ exercise consideration and respect in their speech and actions
+ attempt collaboration before conflict
+ refrain from demeaning discriminatory or harassing behaviour and speech
+ be mindful of your surroundings and your fellow participants and alert community lead
+ers eg your instructor if you notice a dangerous situation someone in distress or
+violation of this Code of Conduct even if it seems inconsequential
+• Citizenship  Participation Communities mirror the societies in which they exist and positive
+action is essential to counteract the many forms of inequality and abuses of power that exist
+in society If you see someone who is making an extra effort to ensure our community is
+welcoming friendly and encourages all participants to contribute to the fullest extent we
+want to know
+• Unacceptable Behaviour Unacceptable behaviours include intimidating harassing abusive
+discriminatory derogatory or demeaning speech or actions by any participant in our com
+munity either in person online at any related events or in oneonone communications car
+ried out in the context of community business Harassment includes harmful or prejudicial
+verbal or written comments related to race religion disability gender sexual orientation in
+appropriate use of nudity andor sexual images in public spaces including computer labs and
+presentation slides deliberate intimidation stalking or following harassing photography or
+recording sustained disruption of talks or other events inappropriate physical contact and
+unwelcome sexual attention
+• Consequences of Unacceptable Behaviour Unacceptable behaviour from any community mem
+ber including the course instructor and those members with decisionmaking authority will
+not be tolerated Anyone asked to stop unacceptable behaviour is expected to comply imme
+diately If a community member engages in unacceptable behaviour action will be taken to
+ensure that such behaviour ends beginning with action on the part of the course instructor
+and escalating if necessary Additional information on University policy regarding harass
+ment conduct and human rights is available here
+• If You Witness or Are Subject to Unacceptable Behaviour or Have Any Other Concerns please notify
+the course instructor as soon as possible If you feel that the course instructor cannot or will
+not provide remedy for the situation please contact any of these alternate resources
+Associate Director Undergraduate ugraddirsocsuoguelphca
+Director of the School directorsocsuoguelphca
+Associate Dean Academic cpesadasocsuoguelphca
+Office of Diversity and Human Rights dhrinfosocsuoguelphca or ext 53000
+Campus Community Police ext 52245
+1Based on citizen code of conduct distributed under a Creative Commons AttributionShareAlike license
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
+CIS2430Object Oriented Programming
+health  wellness
+All members of campus play a role in fostering and promoting a safe supportive environment as
+well as good physical emotional spiritual cultural and mental health and wellness The ongoing
+pandemic has forced all of us to adjust our work habits and our expectations of ourselves
+If you are sick or exhausted take some time off School is not more important than your health
+If you are experiencing challenges please contact the instructorThere are resources on campus set
+up to help you
+Medical concerns Student Health Services at x52131
+Threats of violence personal safety Campus police at x2000
+Psychological or emotional concerns Counselling services at x53244
+Accessibility concerns SAS at x56208
+Sexual assault Campus police at x2000 or counselling services at x53244
+Mental Health concerns Please see the Mental Health Resources website
+Parenting Students who are also parents often face the barrier of exhaustion in the evening
+once children have finally gone to sleep While I maintain the high expectations for all students
+in my classes regardless of parenting status I am happy to problemsolve with you in a way
+that makes you feel supported as you strive for schoolparenting balance
+Other sources of help can be found at the following links
+• Student Health Services Monday to Friday 830am430pm x52131 JT Powell Building
+• Couselling Services Monday to Friday 815am415pm x53244 Level 3 University Centre
+• Wellness Education Centre Monday to Friday 830am430pm x53327 JT Powell Building
+• Student Support Network Monday to Friday 1200pm1000pm Raithby House
+• Campus Community Police 247 x2000 Trent Building
+• Good2Talk 18669255454
+• Here 247 18444373427
+instructor
+Dr Judi McCuaig
+Pronouns sheher
+cis2430socsuoguelphca
+gryphslackcomcthulhu
+teamsmicrosoftcomjudi
+teaching
+assistants
+Abdullah
+Arnab
+Brayden
+Joshua
+Richard
+Rosalind
+Sara
+Shaiza
+Trisha
+tech support
+Alif
+Logan
+Ryan
