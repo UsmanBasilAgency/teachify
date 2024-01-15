@@ -12,11 +12,11 @@ export function useAuth() {
         const loadUseStatus = async () => {
             try {
                 const {
-                    data: { user },
+                    data: { user }
                 } = await supabase.auth.getUser();
                 setIsAuthenticated(user ? true : false);
             } catch (error) {
-                console.error('Async operation failed:', error);
+                console.error("Async operation failed:", error);
             } finally {
                 setIsLoading(false);
             }
@@ -27,12 +27,12 @@ export function useAuth() {
 
     useEffect(() => {
         if (!isLoading && !isAuthenticated) {
-          router.push('/login');
+            router.push("/login");
         }
-      }, [isLoading, isAuthenticated, router]);
+    }, [isLoading, isAuthenticated, router]);
 
     return {
         isAuthenticated,
-        isLoading,
-    }
+        isLoading
+    };
 }
