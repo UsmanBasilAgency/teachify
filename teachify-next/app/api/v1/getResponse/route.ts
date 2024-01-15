@@ -1,7 +1,11 @@
-import { OpenAIStream, StreamingTextResponse } from "ai";
+import { Message, OpenAIStream, StreamingTextResponse } from "ai";
 import { NextRequest } from "next/server";
 import { promises as fs } from 'fs';
 import path from 'path';
+import { getLastElement } from "@/utils/string";
+import { createClient, getUser } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
+import { Models, Tables } from "@/utils/const";
 
 async function getCourseOutlineContent(course: string | null): Promise<string | null> {
   if (!course) {
@@ -19,14 +23,41 @@ async function getCourseOutlineContent(course: string | null): Promise<string | 
   }
 }
 
-export async function POST(req: NextRequest) {
-  const { messages, course } = await req.json();
-  const response = await getCourseOutlineContent(course);
+async function getUserId() {
+  const user = await getUser();
+  return user?.id;
+}
 
-  const updatedMessages = response != null ? [{
+async function extractRequestData(req: NextRequest) {
+  const json = await req.json();
+  const course: string | null = json.course;
+  const messages: Message[] = json.messages;
+  const response = await getCourseOutlineContent(course);
+  const userId = await getUserId();
+
+  const context = {
     role: "user",
-    content: response
-  }, ...messages] : messages;
+    content: response!
+  } as Message;
+
+  return {
+    messages: response != null ? [context, ...messages] : messages,
+    userId,
+  }
+}
+
+export async function POST(req: NextRequest) {
+  const { messages, userId } = await extractRequestData(req);
+
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  const { error } = await supabase.from(Tables.messages).insert({
+    text: getLastElement<Message>(messages)?.content,
+    user_id: userId,
+  });
+
+  console.error(error);
 
   try {
     const openRouterResponse = await fetch(
@@ -38,9 +69,9 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "mistralai/mistral-7b-instruct",
+          model: Models.mistral,
           stream: true,
-          messages: updatedMessages,
+          messages,
         }),
       }
     );
