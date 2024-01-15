@@ -21,18 +21,32 @@ export default function Menu() {
 const MenuContent = () => {
     const darkMode = useContext(DarkModeContext);
     const containerClass = darkMode
-        ? "dark:bg-gray-800 h-lvh"
-        : "bg-gray-100 h-lvh";
+        ? "dark:bg-gray-800 h-full overflow-auto"
+        : "bg-gray-100 h-full overflow-auto";
 
     return (
         <div className={`w-full menu-container ${containerClass}`}>
             <Sidebar />
-            <Card
-                course="CIS2430"
-                professor="Judi McCuaig"
-                description="Delve into Object Oriented Programming"
-                university="University of Guelph"
-            />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 py-12 px-6 gap-16">
+                <Card
+                    course="CIS2430"
+                    professor="Judi McCuaig"
+                    description="Delve into Object Oriented Programming"
+                    university="University of Guelph"
+                />
+                <Card
+                    course="CIS3760"
+                    professor="Judi McCuaig"
+                    description="Software Engineering"
+                    university="University of Guelph"
+                />
+                <Card
+                    course="CIS4450"
+                    professor="Judi McCuaig"
+                    description="Object Oriented Modeling, Design and Programming"
+                    university="University of Guelph"
+                />
+            </div>
         </div>
     );
 };

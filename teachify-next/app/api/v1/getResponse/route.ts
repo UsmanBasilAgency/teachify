@@ -37,13 +37,20 @@ async function extractRequestData(req: NextRequest) {
     const response = await getCourseOutlineContent(course);
     const userId = await getUserId();
 
-    const context = {
-        role: "user",
-        content: response!
+    const systemContext = {
+        role: "system",
+        content: response! 
     } as Message;
 
+    const systemInstructions = {
+        role: "system",
+        content: "You are a helpful education assistant. Your answers must strongly be based on the course outline. Only answer questions using the context prior and if you're not sure of an answer, you can say 'I don't know'"
+    } as Message;
+
+    const updated = response != null ? [systemContext, systemInstructions, ...messages] : messages;
+
     return {
-        messages: response != null ? [context, ...messages] : messages,
+        messages: updated,
         userId
     };
 }
@@ -59,7 +66,9 @@ export async function POST(req: NextRequest) {
         user_id: userId
     });
 
-    console.error(error);
+    if (error) {
+        console.error(error);
+    }
 
     try {
         const openRouterResponse = await fetch(

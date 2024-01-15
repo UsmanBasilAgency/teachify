@@ -1,0 +1,509 @@
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+land acknowledgment
+The Dish With One Spoon Covenant speaks to our collective responsibility to steward and sustain the land and environment in which we live and work, so that all peoples, present and future,
+may benefit from the sustenance it provides. As we continue to strive to strengthen our relationships with and continue to learn from our Indigenous neighbours, we recognize the partnerships
+and knowledge that have guided the learning and research conducted in and for this class. We
+acknowledge that the University of Guelph resides in the ancestral and treaty lands of several Indigenous peoples, including the Attawandaron people and the Mississaugas of the Credit, and we
+recognize and honour our Anishinaabe, Haudenosaunee, and Métis neighbours. We acknowledge
+that the work we do here occurs on their traditional lands so that we might work to build lasting
+partnerships that respect, honour, and value the culture, traditions, and wisdom of those who have
+lived here since time immemorial.
+
+course description
+CIS*3760 is a .75 credit course.
+This course is an examination of the software engineering process, the production of reliable systems and techniques for the design and development of complex software. Topics include objectoriented analysis, design and modeling, software architectures, software reviews, software quality,
+software engineering, ethics, maintenance and formal specifications.
+The Academic Calendars are the source of information about the University of Guelph’s procedures,
+policies, and regulations which apply to undergraduate, graduate, and diploma programs.
+
+learning outcomes
+By the end of this course, you should be able to:
+• Explain and Use the procedures involved in software design and development;
+• Select and Use suitable modeling techniques for planning and designing a software project;
+• Analyze problem specifications and Integrate into suitable software requirements and design
+models;
+• Select and Use suitable software architectures and design patterns for common software
+problems;
+• Select and Use suitable testing methods for verifying and validating a software project;
+• Identify sources of risk in software projects, and Select and Use mitigation strategies in solution designs;
+• Describe effective project management and team behaviours and Evaluate your contributions.
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+prerequisites & restrictions
+CIS*3750
+
+CIS*2750
+
+System Analysis and Design in Applications
+3760 is taught with the assumption that you understand requirements, user stories
+and UML
+System Programming
+
+times
+Lecture
+
+T/Th 8:30 am - 9:50 am
+Book Study from 9:15-9:50
+
+Labs
+
+Labs are used for project-related instruction and meetings
+Tuesday 12:30, Tuesday 2:30, Wednesday 3:30
+
+communication
+Grades will be posted in the gradebook on moodle. Announcements will be made via email.
+You are responsible for checking your email at least twice per day. Personal appointments with instructional team members will take place virtually using slack.
+email
+
+discussion
+
+cis3760@socs.uoguelph.ca
+Do not use instructional team personal email addresses
+use this email address for all course email
+Slack Service for CIS*3760
+use your uog email but a different password
+
+website
+
+moodle.socs.uoguelph.ca
+
+appointments
+
+Outlook --> Judi
+email request -->TAs
+
+textbooks
+There are no required textbooks for this course. You may wish to purchase one of the books that
+will be read during book study sessions.
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+assessments
+70%
+
+Project (P)
+P=SUM(M1,M2,M3,FP)
+
+30%
+
+Book Study Group (SG)
+SG = SUM(S1,S2,S3,S4,S5)
+Course Grade
+Course Grade = P + SG + Bonus Marks
+
+project components
+20% *
+
+Project Milestone One (M1)
+Week of Feb 14 by appointment
+
+20% *
+
+Project Milestone Two (M2)
+Week of March 7 by appointment
+
+20% *
+
+Project Milestone Three (M3)
+Week of March 20 by appointment
+
+10%
+
+Project Final Presentation (FP)
+During Lecture April 4, 6
+
+* Individual milestone grades(M1,M2,M3) are a composition of the group milestone grade (GMn)
+and a peer assessment (PA). Group milestone grades (GM1,GM2,GM3) will be equally weighted
+between the product created and the process followed. The group milestone grade for product
+owners is the average grade for all of their teams. Milestone calculation: Mn = GMn*.8 + PAn*.2
+
+book study components
+6% *
+
+Session One (S1)
+Week 2 or 3. Reflections due Friday after session
+
+6% *
+
+Session Two (S2)
+Week 4 or 5. Reflections due Friday after session
+
+6% *
+
+Session Three (S3)
+Week 6 or 7. Reflections due Friday after session
+
+6% *
+
+Session Four (S4)
+Week 8 or 9. Reflections due Friday after session
+
+6% *
+
+Session Five (S5)
+Week 10 or 11. Reflections due Friday after session
+
+* Students are responsible for attending their scheduled book study session as well as completing
+a graded reflection assignment. Failure to attend the study session will normally result in a grade
+of zero for that session. Students may be absent from one scheduled session in the semester
+without penalty provided the course instructor is notified. The absent student must still complete
+the reflection assignment. This accommodation is intended to be used by the students who are ill
+and who should be staying home to get well.
+
+bonus marks
+Up to 6% bonus marks may be earned by students who participate in improving the Software Engineering wiki. Specific tasks eligible for bonus marks are listed on the course website.
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+Course Topics
+Lecture topics focus on practical skills that can be used directly in the course project. More abstract
+SENG concepts will be examined in the book study sessions. The schedule shown may change as
+the semester progresses. Consult the course website for updates.
+WEEK
+
+TOPICS
+
+Dates
+
+Week 1
+
+Course Intro & Project Intro
+
+J9-J13
+
+Week 2
+
+Task Decomposition & User Stories
+
+J16-J20
+
+Week 3
+
+Scrum
+
+J24-J27
+
+Week 4
+
+RESTful API & Linters & Project Wiki
+
+J30-F3
+
+Week 5
+
+Testing
+
+F7-F10
+
+Week 6
+
+Code Review
+
+F13-F17
+
+Week 7
+
+Product Backlog & PBIs
+
+F27-M3
+
+Week 8
+
+Clean Code
+
+M6-M10
+
+Week 9
+
+Refactoring & Code Smells
+
+M13-M17
+
+Week 10
+
+DevOps & Deployment
+
+M20-M24
+
+Week 11
+
+TBA
+
+M27-M31
+
+Week 12
+
+In Class Project Demos
+
+A3-A6
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+computing requirements
+The course project requirements are specified in the project overview document. As a minimum,
+you will be required to use the following resources:
+• gitlab.socs.uoguelph.ca for project code and management
+• docker for containerizing your project
+• an IDE for development (VS-Code is fine)
+• slack for real-time communication
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+• moodle.socs.uoguelph.ca for course website
+You must have access to a computing device and internet connection that allows you to share your
+screen and do demos of your work while having a voice conversation via Slack.
+A video feed is nice for online meetings but is not required. Screen sharing is required.
+
+academic integrity
+The University of Guelph is committed to upholding the highest standards of academic integrity
+and it is the responsibility of all members of the University community faculty, staff, and students
+to be aware of what constitutes academic misconduct and to do as much as possible to prevent
+academic offences from occurring. University of Guelph students have the responsibility of abiding
+by the University’s policy on academic misconduct regardless of their location of study; faculty, staff
+and students have the responsibility of supporting an environment that discourages misconduct.
+All students who take a SOCS course must pass the Academic Integrity Self Test.
+For educational purposes, instructors impose conditions on assignments that may limit students’
+permission to collaborate with others or to utilize external sources (including, but not limited to,
+software, data, images, text, etc.). Any permitted utilization must be done with proper references.
+Aiding and abetting is a punishable offence; students must be careful not to help others commit
+offences by giving out solutions or providing to access computer accounts. Instructors may use
+automated tools to detect possible cases of academic misconduct.
+Please note: Whether or not a student intended to commit academic misconduct is not relevant for
+a finding of guilt. Hurried or careless submission of assignments does not excuse students from
+responsibility for verifying the academic integrity of their work before submitting it. Students who
+are in any doubt as to whether an action on their part could be construed as an academic offence
+should consult with a faculty member.
+• The Academic Misconduct Policy is detailed in the Undergraduate Calendar here.
+• The SOCS Academic Integrity Unit is here. Login with your central login credentials.
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+policies
+• Regrades: If errors were made in the grading of your work, you must, in writing, present your
+case to the instructor within 5 days of receiving your grade. Be specific about what you believe
+was graded incorrectly. Your submission will be completely regraded. This could result in your
+grade being reduced. It is not a grading error if you simply got a lower grade than you were
+expecting.
+• Missed or Late Assessments: If you are unable to meet an in-course requirement due to medical, psychological, or compassionate reasons, please contact the Instructor and explain the
+situation. Include any evidence you have to support your case. If you merit academic consideration for one of the assessments, you will be given an alternate assessment.
+Please consult the undergraduate calendar for information on regulations and procedures for
+Academic Consideration.
+• Communication & Email Policy Major announcements will be posted to the course website. It
+is your responsibility to check the course website regularly. As per university regulations, all
+students are required to check their mail.uoguelph.ca e-mail account regularly: e-mail is the
+official route of communication between the University and its students.
+• Recording of Materials Presentations which are made in relation to course work, including lectures, cannot be recorded or copied without the permission of the presenter, whether the
+instructor, classmate, or guest lecturer. Material recorded with permission is restricted to
+use for that course and may not be posted on any public space unless further permission is
+granted.
+• Accommodation of Religious Obligations: if you are unable to meet an in-course requirement due
+to religious obligations, please email the instructor within two weeks of the start of the semester
+to make alternate arrangements. See the academic calendar for information on regulations
+and procedures for Academic Accommodation of Religious Obligations.
+• Instructor's Role and Responsibility to Students The instructor’s role is to develop and deliver
+course material in ways that facilitate learning for a variety of students. A variety of materials,
+including notes and recorded lectures, will be made available on the course website.
+• Students' Learning Responsibilities Students are expected to take advantage of the learning opportunities provided during lectures, labs, and help sessions. Students, especially those having difficulty with the course content, should also make use of other resources recommended
+by the instructor. Students who fall behind due to illness, work, or extra-curricular activities
+are advised inform the instructor about their situation as early as possible. This will allow the
+instructor to recommend extra resources in a timely manner and/or provide consideration if
+warranted.
+• Accessibility The University of Guelph is committed to creating a barrier-free environment.
+Providing services for students is a shared responsibility among students, faculty and administrators. This relationship is based on respect of individual rights, the dignity of the individual
+and the University community’s shared commitment to an open and supportive learning environment. Students requiring service or accommodation, whether due to an identified, ongoing
+disability, or for a short-term disability should contact Student Accessibility Services (SAS) as
+soon as possible.
+For more information, contact SAS at 1.519.824.4120 ext 56208 or accessibility@uoguelph.ca
+or wellness.uoguelph.ca/accessibility.
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+code of conduct
+Our learning environment must be a safe, and welcoming environment for all, regardless of ethnicity,
+gender, sexual orientation, ability, socioeconomic status, and/or religion (or lack thereof). This code
+of conduct outlines the expectations for all participants 1 .
+• Expected Behaviour: Members of our learning community are expected to:
+– participate in an authentic and active way, and in doing so, contribute to the health and
+value of our community,
+– exercise consideration and respect in their speech and actions,
+– attempt collaboration before conflict,
+– refrain from demeaning, discriminatory, or harassing behaviour and speech,
+– be mindful of your surroundings and your fellow participants, and alert community leaders (e.g. your instructor) if you notice a dangerous situation, someone in distress, or
+violation of this Code of Conduct, even if it seems inconsequential.
+• Citizenship & Participation: Communities mirror the societies in which they exist and positive
+action is essential to counteract the many forms of inequality and abuses of power that exist
+in society. If you see someone who is making an extra effort to ensure our community is
+welcoming, friendly, and encourages all participants to contribute to the fullest extent, we
+want to know.
+• Unacceptable Behaviour: Unacceptable behaviours include: intimidating, harassing, abusive,
+discriminatory, derogatory or demeaning speech or actions by any participant in our community, either in person, online, at any related events, or in one-on-one communications carried out in the context of community business. Harassment includes: harmful or prejudicial
+verbal or written comments related to race, religion, disability, gender, sexual orientation; inappropriate use of nudity and/or sexual images in public spaces (including computer labs and
+presentation slides); deliberate intimidation, stalking or following; harassing photography or
+recording; sustained disruption of talks or other events; inappropriate physical contact, and
+unwelcome sexual attention.
+• Consequences of Unacceptable Behaviour: Unacceptable behaviour from any community member, including the course instructor and those members with decision-making authority, will
+not be tolerated. Anyone asked to stop unacceptable behaviour is expected to comply immediately. If a community member engages in unacceptable behaviour, action will be taken to
+ensure that such behaviour ends, beginning with action on the part of the course instructor,
+and escalating if necessary. Additional information on University policy regarding harassment, conduct, and human rights is available here.
+• If You Witness or Are Subject to Unacceptable Behaviour or Have Any Other Concerns: please notify
+the course instructor as soon as possible. If you feel that the course instructor cannot or will
+not provide remedy for the situation, please contact any of these alternate resources:
+– Associate Director, Undergraduate (click here to email),
+– Director of the School (click here to email),
+– Associate Dean, Academic (click here to email),
+– Office of Diversity and Human Rights (click here to email, or ext 53000),
+– Campus Community Police (ext 52245).
+
+1 Based on citizen code of conduct, distributed under a Creative Commons Attribution-ShareAlike license
+
+CIS*3760Software Engineering
+instructor
+
+Dr. Judi McCuaig
+Pronouns: she/her
+cis3760@socs.uoguelph.ca
+3760Slack:@judi
+GryphSlack:@cthulhu
+GitHub: @judiMc
+
+teaching
+assistants
+
+Farhan Chowdhury
+Ricardo Jarrin
+Abdul-Muizz Kelani
+
+health & wellness
+All members of campus play a role in fostering and promoting a safe, supportive environment, as
+well as good physical, emotional, spiritual, cultural, and mental health and wellness.
+COVID-19 has required all of us to adjust our work habits and our expectations of ourselves. I
+cannot change the expectations for you, but if you are struggling because of challenges related to
+COVID-19, please contact me and I will try to help you identify a path to success.
+"If you are sick, heartbroken, or exhausted, go home. Work is not more important than your health." -Dr.
+Max Liboiron
+If you are experiencing any challenges, please do not hesitate to contact the instructor, and know that
+there are resources on campus set up to help you out.
+Medical concerns? Student Health Services at x52131
+Threats of violence, personal safety? Campus police at x2000
+Psychological or emotional concerns? Counselling services at x53244
+Accessibility concerns? SAS at x56208
+Sexual assault? Campus police at x2000, or counselling services at x53244
+Mental Health concerns? Please see the Mental Health Resources page here.
+Parents Students who are also parents often face the barrier of exhaustion in the evening once
+children have finally gone to sleep. While I maintain the high expectations for all students in
+my classes regardless of parenting status, I am happy to problem-solve with you in a way
+that makes you feel supported as you strive for school-parenting balance. Your littles are
+welcome in our classroom if you have a childcare emergency.
+Other sources of help can be found at the following links:
+• Student Health Services, Monday to Friday, 8:30am-4:30pm, x52131, J.T. Powell Building
+• Couselling Services, Monday to Friday, 8:15am-4:15pm, x53244, Level 3, University Centre
+• Wellness Education Centre, Monday to Friday, 8:30am-4:30pm, x53327, J.T. Powell Building
+• Student Support Network, Monday to Friday, 12:00pm-10:00pm, Raithby House
+• Campus Community Police, 24/7, x2000, Trent Building
+• Good2Talk, 1.866.925.5454
+• Here 24/7, 1.844.437.3427

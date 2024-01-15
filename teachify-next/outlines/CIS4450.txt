@@ -1,0 +1,295 @@
+School of Computer Science
+CIS*4450/6130 Object Oriented Modeling, Design and Programming
+Winter 2019
+We acknowledge that the University of Guelph resides on the ancestral lands of the Attawandaron people and the treaty
+lands and territory of the Mississaugas of the Credit. We recognize the significance of the Dish with One Spoon Covenant to
+this land and offer our respect to our Anishinaabe, Haudenosaunee and Métis neighbours as we strive to strengthen our
+relationships with them. Today, this gathering place is home to many First Nations, Métis and Inuit peoples and
+acknowledging them reminds us of our important connection to this land where we learn and work.
+
+CIS*4450 is a .5 credit course CIS*6130 is a .5 credit course
+Prerequisites: Instructor Permission
+Instructor:
+Judi McCuaig
+Office: 2204 Reynolds
+Email: objects@socs.uoguelph.ca
+Office hours: appointments available at uofg_oo.youcanbook.me/
+Teaching Assistants: Hillary Dawkins
+Email: objects@socs.uoguelph.ca
+Office Hours: appointments made via course website
+
+Schedule of activities (subject to change)
+Jan 7-11
+
+Object Oriented Fundamentals
+
+Jan 14-18
+
+Core Concepts/Languages Survey
+
+Jan 21-25
+
+Core Topics
+
+Jan 28-Feb 1
+
+Portable data/Persistence
+
+Feb 4-8
+
+Core Topics /Persistence
+
+Feb 11-15
+
+Core Topics
+
+Feb 25-Mar 1
+
+Web Services/Mobile
+
+Mar 4-8
+
+Web Services/Mobile
+
+Mar 11-15
+
+Core Topics
+
+Mar 18-22
+
+Client/Server
+
+Mar 25-29
+
+Client/Server
+
+Apr 1-5
+
+Languages Analysis
+
+Teaching and Learning Activities
+Students are expected to become experts in three of the core concepts, one language, and one type of
+application. Much of the class time will be devoted to discussion groups and cooperative learning activities.
+Students should come to every class prepared with a portable computing device as well as paper and writing
+instruments for illustrating discussion points.
+1
+
+Learning Outcomes
+•
+•
+•
+•
+
+Communicate object-oriented concepts to peers through active discussion and creation of multi-media
+artifacts
+Demonstrate advanced object-oriented programming knowledge through software development.
+Evaluate object-oriented programming languages given a context for application.
+Identify a suitable toolset for design through deployment, given an application type and target platform.
+
+Partial Core Topics List
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+
+Prototype based vs Class based
+Error/Exception Handling
+Classes and Objects
+Composition (aggregation, association,
+composition )
+Memory Management/Garbage Collection
+Typing, Generics, Abstract Classes and
+Interfaces
+UML
+Frameworks and Contracts
+Deployment, Maintenance, and Testing
+Design Patterns
+
+Partial Application Types List
+•
+•
+•
+•
+
+Portable Data/XML/JSON
+Persistence
+Web Services/Mobile
+Client/Server
+
+Partial Languages List
+•
+•
+•
+•
+•
+
+Swift
+Scala
+Python
+Kotlin
+Typescript
+
+Assessment
+A1: OO Fundamentals
+A2: Portable Data and Object Persistence
+A3: Objects in Web Services/Mobile
+A4: Objects in Client/Server
+•
+•
+•
+
+Due Date
+
+Revision Date
+
+Weight
+
+Jan 21
+Feb 11
+March 11
+April 8
+
+Jan 24
+Feb 14
+March 14
+April 11
+
+25%
+25%
+25%
+25%
+
+Graduate students will submit instructional materials with each assignment and will select one of the last
+three assignments to be a research/review paper instead of a programming assignment.
+Undergraduate students may elect to do a review paper in lieu of one assignment but are not required to
+do so.
+In the second or third week of the semester, individuals will be given the opportunity to identify one of
+the last three assignments to be weighted at 30%, and one to be weighted at 20%. This is done to permit
+a more intense focus on one type of application. Any requested reweighting is binding and will not be
+reverted to the even distribution.
+
+Assignment Submission: Assignments must be submitted for peer assessment on the morning of the due date no
+later than 10:00 A.M. Peer assessment is worth 50% of the assignment grade. You will have the opportunity to
+revise your assignment, so it is in your interests to submit even if your assignment isn’t complete. There can be
+no late submissions as the review allocations will be made automatically by the system.
+Revisions: The results of peer assessment will be available approximately 36 hours after the due date. You make
+2
+
+make revisions to your assignment any time up to the revision date. Sometime after 10:00 am on the revision
+date, your assignment git repository will be copied by the marker and that copy will be graded.
+Regrades: Students may request a regrade of an assignment if the marker has made an error in grading. The
+original submission will be entirely regraded and a new mark will be assigned. It is possible for a mark to go
+down, go up, or remain unchanged as a result of a regrade. Students must request a regrade via email within 5
+calendar days of receiving the assignment grade.
+Missed Assignments: There are no makeup assignments. If you miss an assessment and have documentation to
+show that you are eligible for Academic Consideration the weight of the assessment will be distributed between
+the other assignments
+If you are unable to meet an in-course requirement due to medical, psychological, or compassionate reasons,
+please make an appointment to discuss with your course instructor. Please see the calendar for specific details
+about regulations and procedures for Academic Consideration
+Accommodation of Religious Obligations: If you are unable to meet an in-course requirement due to religious
+obligations, please email the course email address within two weeks of the start of the semester to make
+alternate arrangements. See the undergraduate calendar for information on regulations and procedures for
+Academic Accommodation of Religious Obligations:
+
+Course Website
+Course material, announcements, and grades will be posted to the course website at moodle.socs.uoguelph.ca.
+You are responsible for taking notes. Often there will be no lecture slides.
+
+Textbook
+The Object-Oriented Thought Process by Matt Weisfeld
+The text is not required but does provide a lovely theoretical foundation that is language-independent. The
+course will be roughly organized in a similar fashion to this text.
+
+Description
+This course is a special topics course that will exam OO methodology in the context of the skills and knowledge
+required of a software developer. Topics to be covered include OO fundamentals, Inheritance and Composition,
+Frameworks and reuse, Portable Objects, Persistent Objects, Objects in Web Services, Objects in Client/Server
+applications and Design Patterns.
+The Academic Calendars are the source of information about the University of Guelph’s procedures, policies and
+regulations which apply to undergraduate, graduate and diploma programs:
+
+Communication & Email Policy
+Major announcements will be posted to the course website and the discussion forums. It is your responsibility to
+check the course website regularly. As per university regulations, all students are required to check their
+<mail.uoguelph.ca> e- mail account regularly: e-mail is the official route of communication between the
+University and its students.
+
+Redistribution of Materials
+Presentations which are made in relation to course work—including lectures—cannot be recorded or copied
+without the permission of the presenter, whether the instructor, classmate or guest lecturer. Material recorded
+3
+
+with permission is restricted to use for that course and may not be posted on any public space unless further
+permission is granted.
+
+Important Dates
+Monday, Jan. 7: First day of class
+Monday, Feb. 18: Winter Break begins
+Monday, Feb 25: Classes resume after Winter Break
+Friday March 8: 40th Class Day- last day to drop classes without academic penalty
+Friday, April 5: Last class of classes
+Monday, April 22: Last day of exams
+
+Instructor’s Role and Responsibility to Students
+The instructor’s role is to develop and deliver course material in ways that facilitate learning for a variety of
+students. Notes will be made available to students on the course website but are not intended to be stand-alone.
+The online discussions, assignments, labs, and the e-textbook are all important components of this course.
+
+Students’ Learning Responsibilities
+Students are expected to take advantage of the learning opportunities provided during lectures and help sessions.
+Students, especially those having difficulty with the course content, should also make use of other resources
+recommended by the instructor. Students who fall behind due to illness, work, or extra-curricular activities are
+advised to keep the instructor informed as early as possible. This will allow the instructor to recommend extra
+resources in a timely manner and/or provide consideration if appropriate.
+
+Academic Integrity
+The University of Guelph is committed to upholding the highest standards of academic integrity and it is the
+responsibility of all members of the University community faculty, staff, and students to be aware of what
+constitutes academic misconduct and to do as much as possible to prevent academic offences from occurring.
+University of Guelph students have the responsibility of abiding by the University’s policy on academic
+misconduct regardless of their location of study; faculty, staff and students have the responsibility of supporting
+an environment that discourages misconduct. All students who take a SOCS course must pass the Academic
+Integrity Self Test.
+For educational purposes, instructors impose conditions on assignments that may limit students' permission to
+collaborate with others or to utilize external sources (including, but not limited to, software, data, images, text,
+etc.). Any permitted utilization must be done with proper references. Aiding and abetting is a punishable
+offence; students must be careful not to help others commit offences by giving out solutions or providing to
+access computer accounts. Instructors may use automated tools to detect possible cases of academic misconduct.
+Please note: Whether or not a student intended to commit academic misconduct is not relevant for a finding of
+guilt. Hurried or careless submission of assignments does not excuse students from responsibility for verifying the
+academic integrity of their work before submitting it. Students who are in any doubt as to whether an action on
+their part could be construed as an academic offence should consult with a faculty member.
+The Academic Misconduct Policy is detailed in the Undergraduate Calendar:
+The SOCS Academic Integrity Unit:
+
+Accessibility
+The University promotes the full participation of students who experience disabilities in their academic programs.
+To that end, the provision of academic accommodation is a shared responsibility between the University and the
+4
+
+student.
+When accommodations are needed, the student is required to first register with Student Accessibility Services
+(SAS). Documentation to substantiate the existence of a disability is required, however, interim accommodations
+may be possible while that process is underway.
+Accommodations are available for both permanent and temporary disabilities. It should be noted that common
+illnesses such as a cold or the flu do not constitute a disability.
+Use of the SAS Exam Centre requires students to book their exams at least 7 days in advance, and not later than
+the 40th Class Day. More information: www.uoguelph.ca/sas
+
+Policy on Children in Class
+All exclusively breastfeeding babies are welcome in class whenever necessary. I understand that childcare can
+sometimes be disrupted, and would rather you bring a quiet, occupied child to class than have you skip class.
+Bringing your child to class should not be a long-term childcare solution but is an acceptable emergency action.
+If you do bring your child to class, please sit near an exit so that you can step outside without disrupting your
+peers if your little one needs extra attention.
+
+5
+
+
