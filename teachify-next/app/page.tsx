@@ -1,23 +1,32 @@
 import { Tables } from "@/utils/const";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+    const isProduction = process.env.NODE_ENV === "production";
 
-  const { data, error } = await supabase.from(Tables.messages).select('*');
+    if (!isProduction) {
+        const cookieStore = cookies();
+        const supabase = createClient(cookieStore);
 
-  return (
-    <>
-      <h1>Messages</h1>
-      <ul>
-        {data ? data.map(message => (
-          <li key={message.id}>{message.text}</li>
-        )) : null}
-      </ul>
-    </>
-  );
+        const { data, error } = await supabase
+            .from(Tables.messages)
+            .select("*");
 
-  // return redirect('/menu');
+        return (
+            <>
+                <h1>Messages</h1>
+                <ul>
+                    {data
+                        ? data.map((message) => (
+                              <li key={message.id}>{message.text}</li>
+                          ))
+                        : null}
+                </ul>
+            </>
+        );
+    } else {
+        return redirect("/menu");
+    }
 }

@@ -1,15 +1,11 @@
 const DARK_MODE_CLASS_NAME = "dark";
 
 enum Tables {
-    messages = "messages",
+    messages = "messages"
 }
 
 enum Models {
-    mistral = "mistralai/mistral-7b-instruct",
+    mistral = "mistralai/mistral-7b-instruct"
 }
 
-export {
-    DARK_MODE_CLASS_NAME,
-    Tables,
-    Models,
-}
+export { DARK_MODE_CLASS_NAME, Tables, Models };

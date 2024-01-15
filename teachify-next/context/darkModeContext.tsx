@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { DARK_MODE_CLASS_NAME } from '@/utils/const';
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { DARK_MODE_CLASS_NAME } from "@/utils/const";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 const INITIAL_COLOR_MODE_STATE = true;
 
@@ -16,8 +16,9 @@ interface DarkModeContextProviderProps {
 
 const DarkModeContext = createContext<DarkModeState | null>(null);
 
-
-const DarkModeContextProvider: React.FC<DarkModeContextProviderProps> = ({ children }) => {
+const DarkModeContextProvider: React.FC<DarkModeContextProviderProps> = ({
+    children
+}) => {
     const [darkMode, setDarkMode] = useState<boolean>(INITIAL_COLOR_MODE_STATE);
 
     // Function to update the context value
@@ -38,8 +39,4 @@ const DarkModeContextProvider: React.FC<DarkModeContextProviderProps> = ({ child
     );
 };
 
-export {
-    DarkModeContext,
-    DarkModeContextProvider,
-    INITIAL_COLOR_MODE_STATE,
-}
+export { DarkModeContext, DarkModeContextProvider, INITIAL_COLOR_MODE_STATE };
