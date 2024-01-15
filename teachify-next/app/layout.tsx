@@ -9,7 +9,19 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: "Teachify",
     description:
-        "A fully AI managed suite for all academic and administration needs."
+        "A fully AI managed suite for all academic and administration needs.",
+    applicationName: "Teachify",
+    authors: [
+        {
+            name: "Usman Zaheer",
+            url: "https://github.com/uz1pk"
+        },
+        {
+            name: "Basil Yusuf",
+            url: "https://github.com/basilysf1709"
+        }
+    ],
+    
 };
 
 export default function RootLayout({
