@@ -37,17 +37,19 @@ async function extractRequestData(req: NextRequest) {
     const response = await getCourseOutlineContent(course);
     const userId = await getUserId();
 
-    const systemContext = {
-        role: "system",
-        content: response! 
-    } as Message;
+    const context = [
+        {
+            role: "system",
+            content: response!
+        },
+        {
+            role: "system",
+            content:
+                "You are a helpful education assistant. Your answers must strongly be based on the course outline. Only answer questions using the context prior and if you're not sure of an answer, you can say 'I don't know'"
+        }
+    ] as Message[];
 
-    const systemInstructions = {
-        role: "system",
-        content: "You are a helpful education assistant. Your answers must strongly be based on the course outline. Only answer questions using the context prior and if you're not sure of an answer, you can say 'I don't know'"
-    } as Message;
-
-    const updated = response != null ? [systemContext, systemInstructions, ...messages] : messages;
+    const updated = response != null ? [...context, ...messages] : messages;
 
     return {
         messages: updated,

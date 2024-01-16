@@ -56,11 +56,6 @@ export const middleware = async (request: NextRequest) => {
     );
 
     await supabase.auth.getSession();
-    const user = await supabase.auth.getUser();
-
-    if (user.data.user == null || user.data.user == undefined) {
-        response = NextResponse.redirect("/login");
-    }
 
     return response;
 };
