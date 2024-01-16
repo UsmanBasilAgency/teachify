@@ -59,14 +59,13 @@ const sampleData = [
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "...."
-    }
+        logs: "....",
+    },
+    
 ];
 
-const LogsContent = ({}) => {
-    const [emailVisible, setEmailVisible] = useState(
-        sampleData.map(() => false)
-    );
+const LogsContent = ({ }) => {
+    const [emailVisible, setEmailVisible] = useState(sampleData.map(() => false));
 
     const darkMode = useContext(DarkModeContext);
     const containerClass = darkMode
