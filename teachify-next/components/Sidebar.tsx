@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import Link from "next/link";
-import { createClient } from "@/utils/supabase/client";
+import { supabase } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
-
-const supabase = createClient();
 
 export default function Sidebar() {
     const { darkMode, toggleDarkMode } = useDarkMode();

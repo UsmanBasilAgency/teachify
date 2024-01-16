@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/client";
+import { supabase } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -6,7 +6,6 @@ export function useAuth() {
     const [isLoading, setIsLoading] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const router = useRouter();
-    const supabase = createClient();
 
     useEffect(() => {
         const loadUseStatus = async () => {
