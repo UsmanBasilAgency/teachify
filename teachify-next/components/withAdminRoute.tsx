@@ -2,6 +2,7 @@ import { ComponentType, FC, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Session } from "@supabase/supabase-js";
 import { Roles } from "@/utils/const";
+import LoadingIndicator from "./LoadingIndicator";
 
 interface WithAdminRouteProps {
     session: Session | null;
@@ -37,7 +38,7 @@ function withAuthorizationRoute<P extends object>(
         }, []);
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <LoadingIndicator />;
         }
 
         return <WrappedComponent {...props} />;
