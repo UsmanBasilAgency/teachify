@@ -1,7 +1,16 @@
 const DARK_MODE_CLASS_NAME = "dark";
 
 enum Tables {
-    messages = "messages"
+    messages = "messages",
+    userRoles = "userroles",
+    courses = "courses",
+    userCourses = "usercourses"
+}
+
+enum Roles {
+    admin,
+    student,
+    professor
 }
 
 enum Models {
@@ -13,4 +22,4 @@ enum Models {
     gpt3 = "openai/gpt-3.5-turbo"
 }
 
-export { DARK_MODE_CLASS_NAME, Tables, Models };
+export { DARK_MODE_CLASS_NAME, Tables, Models, Roles };

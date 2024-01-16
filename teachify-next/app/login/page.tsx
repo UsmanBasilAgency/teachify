@@ -3,9 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LoadingIndicator from "@/components/LoadingIndicator";
-import { createClient } from "@/utils/supabase/client";
-
-const supabase = createClient();
+import { supabase } from "@/utils/supabase/client";
 
 export default function Login() {
     const [email, setEmail] = useState<string>("");
