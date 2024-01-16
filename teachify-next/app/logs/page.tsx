@@ -1,59 +1,59 @@
-'use client'
-import React, { useState, useContext } from "react";
-import { EnvelopeIcon } from "@heroicons/react/16/solid";
+"use client";
+
+import { useState, useContext } from "react";
 import Sidebar from "@/components/Sidebar";
 import { DarkModeContext } from "@/context/darkModeContext";
-import { useAuth } from "@/hooks/useAuth";
-import LoadingIndicator from "@/components/LoadingIndicator";
+import { withAuthorizationRoute } from "@/components/withAdminRoute";
+import { Roles } from "@/utils/const";
 
 const sampleData = [
     {
         courseName: "Apple Inc.",
         studentName: "Tim Cook",
         student_email: "tim@apple.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Microsoft",
         studentName: "Satya Nadella",
         student_email: "satya@microsoft.com",
-        logs: "...",
+        logs: "..."
     },
     {
         courseName: "Google",
         studentName: "Sundar Pichai",
         student_email: "sundar@google.com",
-        logs: "...",
+        logs: "..."
     },
     {
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Amazon",
         studentName: "Andy Jassy",
         student_email: "andy@amazon.com",
-        logs: "....",
+        logs: "...."
     },
     {
         courseName: "Amazon",
@@ -63,17 +63,6 @@ const sampleData = [
     },
     
 ];
-export default function Menu() {
-    const { isAuthenticated, isLoading } = useAuth();
-
-    if (isLoading) {
-        return <LoadingIndicator />;
-    } else if (isAuthenticated) {
-        return <LogsContent />;
-    } else {
-        return null;
-    }
-}
 
 const LogsContent = ({ }) => {
     const [emailVisible, setEmailVisible] = useState(sampleData.map(() => false));
@@ -149,19 +138,28 @@ const LogsContent = ({ }) => {
                             </thead>
                             <tbody>
                                 {sampleData.map((item: any, index: number) => (
-                                    <tr key={index} className="border-b text-gray-800 dark:text-white">
+                                    <tr
+                                        key={index}
+                                        className="border-b text-gray-800 dark:text-white"
+                                    >
                                         <th
                                             scope="row"
                                             className="px-6 py-4 font-medium whitespace-nowrap"
                                         >
                                             {item.courseName}
                                         </th>
-                                        <td className="px-6 py-4">{item.studentName}</td>
+                                        <td className="px-6 py-4">
+                                            {item.studentName}
+                                        </td>
                                         <td className="px-6 py-4">
                                             {item.student_email}
                                         </td>
-                                        <td className="px-6 py-4">{item.position}</td>
-                                        <td className="px-6 py-4">{item.location}</td>
+                                        <td className="px-6 py-4">
+                                            {item.position}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.location}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -172,3 +170,7 @@ const LogsContent = ({ }) => {
         </div>
     );
 };
+export default withAuthorizationRoute(LogsContent, [
+    Roles.admin,
+    Roles.professor
+]);

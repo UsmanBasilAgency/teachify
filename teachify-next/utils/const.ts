@@ -4,13 +4,13 @@ enum Tables {
     messages = "messages",
     userRoles = "userroles",
     courses = "courses",
-    userCourses = "usercourses",
+    userCourses = "usercourses"
 }
 
 enum Roles {
-    admin = "admin",
-    student = "student",
-    professor = "professor"
+    admin,
+    student,
+    professor
 }
 
 enum Models {
