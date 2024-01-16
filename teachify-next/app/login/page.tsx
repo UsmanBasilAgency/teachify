@@ -68,25 +68,25 @@ export default function Login() {
     };
 
     return (
-        <section className="">
+        <section className="bg-gray-800 text-gray-100">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a
                     href="/menu"
-                    className="text-blue-700 flex items-center mb-6 text-2xl font-semibold text-gray-900"
+                    className="text-gray-100 flex items-center mb-6 text-2xl font-semibold text-gray-100"
                 >
                     Teachify
                 </a>
                 {loading && <LoadingIndicator />}
-                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+                <div className="w-full bg-gray-800 rounded-lg border border-0.5 border-gray-700 shadow md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-100 md:text-2xl">
                             Sign in to your account
                         </h1>
                         <div className="space-y-4 md:space-y-6">
                             <div>
                                 <label
                                     htmlFor="email"
-                                    className="block mb-2 text-sm font-medium text-gray-900"
+                                    className="block mb-2 text-sm font-medium text-gray-100"
                                 >
                                     Your email
                                 </label>
@@ -104,7 +104,7 @@ export default function Login() {
                             <div>
                                 <label
                                     htmlFor="password"
-                                    className="block mb-2 text-sm font-medium text-gray-900"
+                                    className="block mb-2 text-sm font-medium text-gray-100"
                                 >
                                     Password
                                 </label>
@@ -150,20 +150,20 @@ export default function Login() {
                             </div>
                             <button
                                 onClick={handleSignIn}
-                                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                className="w-full text-gray-100 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                             >
                                 Sign in
                             </button>
                             <button
                                 onClick={handleSignUp}
-                                className="w-full text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                className="w-full text-gray-100 bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                             >
                                 Sign up with Email
                             </button>
                             <button
                                 onClick={handleSignInWithGoogle}
                                 type="button"
-                                className="w-full text-white bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center text-center inline-flex items-center justify-between"
+                                className="w-full text-gray-100 bg-blue-900 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center text-center inline-flex items-center justify-between"
                             >
                                 <svg
                                     className="mr-2 -ml-1 w-4 h-4"
