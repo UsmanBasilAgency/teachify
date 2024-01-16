@@ -1,75 +1,37 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
 import { DarkModeContext } from "@/context/darkModeContext";
 import { withAuthorizationRoute } from "@/components/withAdminRoute";
 import { Roles } from "@/utils/const";
+import { supabase } from "@/utils/supabase/client";
 
-const sampleData = [
-    {
-        courseName: "Apple Inc.",
-        studentName: "Tim Cook",
-        student_email: "tim@apple.com",
-        logs: "...."
-    },
-    {
-        courseName: "Microsoft",
-        studentName: "Satya Nadella",
-        student_email: "satya@microsoft.com",
-        logs: "..."
-    },
-    {
-        courseName: "Google",
-        studentName: "Sundar Pichai",
-        student_email: "sundar@google.com",
-        logs: "..."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "...."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "...."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "...."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "...."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "...."
-    },
-    {
-        courseName: "Amazon",
-        studentName: "Andy Jassy",
-        student_email: "andy@amazon.com",
-        logs: "....",
-    },
-    
-];
 
 const LogsContent = ({ }) => {
-    const [emailVisible, setEmailVisible] = useState(sampleData.map(() => false));
+    const [messages, setMessages] = useState<any>([])
+    useEffect(() => {
+        const fetchData = async () => {
+            let {data, error} = await supabase.from('messages').select(`
+                text,
+                course_id,
+                courses ( id, code, name, credit )
+              `)
+    
+          if (error) {
+            console.log('Error fetching data: ', error)
+          } else if (data) {
+            console.log(data)
+            setMessages(data)
+          }
+        }
+    
+        fetchData()
+      }, [])
 
     const darkMode = useContext(DarkModeContext);
     const containerClass = darkMode
-        ? "dark:bg-gray-800 h-full overflow-auto text-white" // Adjust text color for dark mode
+        ? "dark:bg-gray-800 h-full overflow-auto text-white"
         : "bg-gray-100 h-full overflow-auto text-gray-800";
 
     return (
@@ -137,7 +99,7 @@ const LogsContent = ({ }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {sampleData.map((item: any, index: number) => (
+                                {messages.map((item: any, index: number) => (
                                     <tr
                                         key={index}
                                         className="border-b text-gray-800 dark:text-white"
@@ -146,19 +108,16 @@ const LogsContent = ({ }) => {
                                             scope="row"
                                             className="px-6 py-4 font-medium whitespace-nowrap"
                                         >
-                                            {item.courseName}
+                                            {item.courses?.code}
                                         </th>
                                         <td className="px-6 py-4">
-                                            {item.studentName}
+                                            {item.courses?.name}
                                         </td>
                                         <td className="px-6 py-4">
-                                            {item.student_email}
+                                            {item.courses?.credit}
                                         </td>
                                         <td className="px-6 py-4">
-                                            {item.position}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.location}
+                                            {item.text}
                                         </td>
                                     </tr>
                                 ))}
