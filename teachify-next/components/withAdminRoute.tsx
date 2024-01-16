@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { supabase } from "@/utils/supabase/client";
 import { Session } from "@supabase/supabase-js";
 import { Roles, Tables } from "@/utils/const";
+import LoadingIndicator from "./LoadingIndicator";
 
 interface WithAdminRouteProps {
     session: Session | null;
@@ -44,7 +45,7 @@ const withAdminRoute = <P extends object>(
         };
 
         if (loading) {
-            return <div>Loading...</div>;
+            return <LoadingIndicator />;
         }
 
         return <WrappedComponent {...props} />;

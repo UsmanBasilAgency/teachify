@@ -4,6 +4,7 @@ import { EnvelopeIcon } from "@heroicons/react/16/solid";
 import Sidebar from "@/components/Sidebar";
 import { DarkModeContext } from "@/context/darkModeContext";
 import { useAuth } from "@/hooks/useAuth";
+import LoadingIndicator from "@/components/LoadingIndicator";
 
 const sampleData = [
     {
@@ -66,7 +67,7 @@ export default function Menu() {
     const { isAuthenticated, isLoading } = useAuth();
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <LoadingIndicator />;
     } else if (isAuthenticated) {
         return <LogsContent />;
     } else {

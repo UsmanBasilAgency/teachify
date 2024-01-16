@@ -5,12 +5,13 @@ import Sidebar from "@/components/Sidebar";
 import { DarkModeContext } from "@/context/darkModeContext";
 import { Card } from "@/components/Card";
 import { useAuth } from "@/hooks/useAuth";
+import LoadingIndicator from "@/components/LoadingIndicator";
 
 export default function Menu() {
     const { isAuthenticated, isLoading } = useAuth();
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <LoadingIndicator />;
     } else if (isAuthenticated) {
         return <MenuContent />;
     } else {
