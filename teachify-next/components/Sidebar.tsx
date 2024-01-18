@@ -24,7 +24,6 @@ export default function Sidebar() {
     const handleSignOut = async (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         await supabase.auth.signOut();
-        console.log("Signed Out");
         router.push("/login");
     };
 

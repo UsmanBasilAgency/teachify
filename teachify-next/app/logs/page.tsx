@@ -3,31 +3,29 @@
 import { useState, useContext, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
 import { DarkModeContext } from "@/context/darkModeContext";
-import { withAuthorizationRoute } from "@/components/withAdminRoute";
-import { Roles } from "@/utils/const";
+import { withAuthorization } from "@/components/withAuth";
+import { Role } from "@/utils/const";
 import { supabase } from "@/utils/supabase/client";
 
-
-const LogsContent = ({ }) => {
-    const [messages, setMessages] = useState<any>([])
+const LogsContent = ({}) => {
+    const [messages, setMessages] = useState<any>([]);
     useEffect(() => {
         const fetchData = async () => {
-            let {data, error} = await supabase.from('messages').select(`
+            let { data, error } = await supabase.from("messages").select(`
                 text,
                 course_id,
                 courses ( id, code, name, credit )
-              `)
-    
-          if (error) {
-            console.log('Error fetching data: ', error)
-          } else if (data) {
-            console.log(data)
-            setMessages(data)
-          }
-        }
-    
-        fetchData()
-      }, [])
+              `);
+
+            if (error) {
+                console.error(error);
+            } else if (data) {
+                setMessages(data);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const darkMode = useContext(DarkModeContext);
     const containerClass = darkMode
@@ -129,7 +127,5 @@ const LogsContent = ({ }) => {
         </div>
     );
 };
-export default withAuthorizationRoute(LogsContent, [
-    Roles.admin,
-    Roles.professor
-]);
+
+export default withAuthorization(LogsContent, [Role.admin, Role.professor]);

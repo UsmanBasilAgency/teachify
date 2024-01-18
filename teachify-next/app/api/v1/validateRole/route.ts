@@ -1,32 +1,15 @@
-import { Roles, Tables } from "@/utils/const";
+import { Role, Tables } from "@/utils/const";
+import { extractRolesSupabaseResult } from "@/utils/string";
 import { createClient } from "@/utils/supabase/server";
-import { PostgrestError } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
-function validateRoles(
-    data: { role: string }[] | null,
-    error: PostgrestError | null,
-    roles: Roles[]
-): boolean {
-    if (roles.length === 0) {
-        return false;
-    } else if (error || !data || data.length === 0) {
-        return false;
-    } else if (
-        data
-            ?.flatMap(({ role }) => (role ? (role as string).split(",") : []))
-            .map((role) => Roles[role as keyof typeof Roles])
-            .filter(
-                (role) =>
-                    role != undefined && role != null && roles.includes(role)
-            ).length === 0
-    ) {
-        return false;
-    } else {
-        return true;
-    }
+function validateRoles(userRoles: Role[], roles: Role[]): boolean {
+    return (
+        roles.length !== 0 &&
+        userRoles.length !== 0 &&
+        userRoles.filter((role) => roles.includes(role)).length !== 0
+    );
 }
 
 export async function POST(req: NextRequest) {
@@ -40,7 +23,21 @@ export async function POST(req: NextRequest) {
             .from(Tables.userRoles)
             .select("role");
 
-        if (validateRoles(data, error, roles)) {
+        if (error) {
+            return new Response(
+                JSON.stringify({
+                    message: error.message,
+                    code: error.code,
+                    details: error.details
+                }),
+                {
+                    status: 500,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
+
+        if (validateRoles(extractRolesSupabaseResult(data), roles)) {
             return new Response(
                 JSON.stringify({ message: "User Authorized" }),
                 {
