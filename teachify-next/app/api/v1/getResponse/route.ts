@@ -53,24 +53,30 @@ async function extractRequestData(req: NextRequest) {
 
     return {
         messages: updated,
-        userId
+        userId,
+        course
     };
 }
 
 export async function POST(req: NextRequest) {
-    const { messages, userId } = await extractRequestData(req);
+    const { messages, userId, course } = await extractRequestData(req);
 
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
+    const { data } = await supabase
+        .from('courses')
+        .select('*')
+        .eq('code', course)
+        .single()
+
     const { error } = await supabase.from(Tables.messages).insert({
         text: getLastElement<Message>(messages)?.content,
-        user_id: userId
+        user_id: userId,
+        course_id: data?.id
     });
 
-    if (error) {
-        console.error(error);
-    }
+    if (error) console.error(error)
 
     try {
         const openRouterResponse = await fetch(

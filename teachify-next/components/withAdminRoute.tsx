@@ -1,24 +1,21 @@
 import { ComponentType, FC, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Session } from "@supabase/supabase-js";
 import { Roles } from "@/utils/const";
 import LoadingIndicator from "./LoadingIndicator";
 
-interface WithAdminRouteProps {
-    session: Session | null;
-}
-
 function withAuthorizationRoute<P extends object>(
     WrappedComponent: ComponentType<P>,
-    roles: Roles[]
-) {
-    const withAdminAuth: FC<P & WithAdminRouteProps> = (props) => {
+    roles: Roles[],
+    redirect = true
+): FC<P> {
+    const withAdminAuth: FC<P> = (props) => {
         const router = useRouter();
         const [loading, setLoading] = useState(true);
+        const [nonRedirect, setNonRedirect] = useState(false);
 
         useEffect(() => {
             async function checkAuthorization() {
-                const response = await fetch("api/v1/validateRole", {
+                const response = await fetch("/api/v1/validateRole", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -27,10 +24,15 @@ function withAuthorizationRoute<P extends object>(
                         roles
                     })
                 });
-                setLoading(false);
 
+                setLoading(false);
+                
                 if (response.status !== 200) {
-                    router.push("/menu");
+                    if (redirect) {
+                        router.push("/menu");
+                    } else {
+                        setNonRedirect(true);
+                    }
                 }
             }
 
@@ -39,6 +41,10 @@ function withAuthorizationRoute<P extends object>(
 
         if (loading) {
             return <LoadingIndicator />;
+        }
+
+        if (nonRedirect) {
+            return null;
         }
 
         return <WrappedComponent {...props} />;
