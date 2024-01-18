@@ -6,7 +6,7 @@ import LoadingIndicator from "./LoadingIndicator";
 function withAuthorization<P extends object>(
     WrappedComponent: ComponentType<P>,
     roles: Role[],
-    shouldRedirect = true
+    redirectRoute: string | null = "/menu"
 ): FC<P> {
     const withAdminAuth: FC<P> = (props) => {
         const router = useRouter();
@@ -25,13 +25,12 @@ function withAuthorization<P extends object>(
                     })
                 });
 
-                setLoading(false);
-
                 if (response.status !== 200) {
-                    if (shouldRedirect) {
-                        router.push("/menu");
+                    if (redirectRoute) {
+                        router.push(redirectRoute);
                     } else {
-                        setRedirect(true);
+                        setLoading(false);
+                        setRedirect(false);
                     }
                 }
             }
@@ -47,7 +46,9 @@ function withAuthorization<P extends object>(
             return null;
         }
 
-        return <WrappedComponent {...props} />;
+        if (!loading) {
+            return <WrappedComponent {...props} />;
+        }
     };
 
     return withAdminAuth;
@@ -55,12 +56,12 @@ function withAuthorization<P extends object>(
 
 function withAuthentication<P extends object>(
     WrappedComponent: ComponentType<P>,
-    shouldRedirect = true
+    redirectRoute: string | null = "/login"
 ): FC<P> {
     return withAuthorization<P>(
         WrappedComponent,
         Object.values(Role),
-        shouldRedirect
+        redirectRoute
     );
 }
 
