@@ -20,9 +20,4 @@ function extractRolesSupabaseResult(data: { role: any }[] | null): Role[] {
         : [];
 }
 
-export {
-    getLastElement,
-    convertRoles,
-    extractRolesSupabaseResult,
-    isNullOrEmpty
-};
+export { getLastElement, convertRoles, extractRolesSupabaseResult };
