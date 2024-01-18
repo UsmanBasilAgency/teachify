@@ -48,7 +48,7 @@ const AddCourses = ({ }) => {
                             <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                                 Attach a file</p>
                         </div>
-                        <input type="file" className="opacity-0" />
+                        <input type="file" accept="image/*" className="opacity-0" />
                     </label>
                 </div>
 
