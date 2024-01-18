@@ -7,7 +7,7 @@ enum Tables {
     userCourses = "usercourses"
 }
 
-enum Roles {
+enum Role {
     admin = "admin",
     student = "student",
     professor = "professor"
@@ -22,4 +22,4 @@ enum Models {
     gpt3 = "openai/gpt-3.5-turbo"
 }
 
-export { DARK_MODE_CLASS_NAME, Tables, Models, Roles };
+export { DARK_MODE_CLASS_NAME, Tables, Models, Role };

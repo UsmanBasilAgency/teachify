@@ -46,15 +46,11 @@ export default function Login() {
             router.push("/menu");
         }
 
-        console.log(
-            `Error: ${JSON.stringify(error)}\nData: ${JSON.stringify(data)}`
-        );
-
         setLoading(false);
     };
 
     const handleSignInWithGoogle = async () => {
-        const { data, error } = await supabase.auth.signInWithOAuth({
+        const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
                 redirectTo: `${window.location.origin}/auth/callback`
@@ -63,7 +59,6 @@ export default function Login() {
 
         if (error) {
             setError(error.toString());
-            console.log(JSON.stringify(error));
         }
     };
 

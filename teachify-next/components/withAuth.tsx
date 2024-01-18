@@ -1,17 +1,17 @@
 import { ComponentType, FC, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Roles } from "@/utils/const";
+import { Role } from "@/utils/const";
 import LoadingIndicator from "./LoadingIndicator";
 
-function withAuthorizationRoute<P extends object>(
+function withAuthorization<P extends object>(
     WrappedComponent: ComponentType<P>,
-    roles: Roles[],
-    redirect = true
+    roles: Role[],
+    shouldRedirect = true
 ): FC<P> {
     const withAdminAuth: FC<P> = (props) => {
         const router = useRouter();
         const [loading, setLoading] = useState(true);
-        const [nonRedirect, setNonRedirect] = useState(false);
+        const [redirect, setRedirect] = useState(true);
 
         useEffect(() => {
             async function checkAuthorization() {
@@ -26,12 +26,12 @@ function withAuthorizationRoute<P extends object>(
                 });
 
                 setLoading(false);
-                
+
                 if (response.status !== 200) {
-                    if (redirect) {
+                    if (shouldRedirect) {
                         router.push("/menu");
                     } else {
-                        setNonRedirect(true);
+                        setRedirect(true);
                     }
                 }
             }
@@ -43,7 +43,7 @@ function withAuthorizationRoute<P extends object>(
             return <LoadingIndicator />;
         }
 
-        if (nonRedirect) {
+        if (!redirect) {
             return null;
         }
 
@@ -53,4 +53,15 @@ function withAuthorizationRoute<P extends object>(
     return withAdminAuth;
 }
 
-export { withAuthorizationRoute };
+function withAuthentication<P extends object>(
+    WrappedComponent: ComponentType<P>,
+    shouldRedirect = true
+): FC<P> {
+    return withAuthorization<P>(
+        WrappedComponent,
+        Object.values(Role),
+        shouldRedirect
+    );
+}
+
+export { withAuthorization, withAuthentication };
