@@ -16,11 +16,11 @@ function validateRoles(
         return false;
     } else if (
         data
-            .flatMap(({ role }) => (role ? (role as string).split(",") : []))
+            ?.flatMap(({ role }) => (role ? (role as string).split(",") : []))
+            .map((role) => Roles[role as keyof typeof Roles])
             .filter(
                 (role) =>
-                    Roles[role as keyof typeof Roles] &&
-                    roles.includes(Roles[role as keyof typeof Roles])
+                    role != undefined && role != null && roles.includes(role)
             ).length === 0
     ) {
         return false;
@@ -49,13 +49,10 @@ export async function POST(req: NextRequest) {
                 }
             );
         } else {
-            return new Response(
-                JSON.stringify({ message: "Forbidden" }),
-                {
-                    status: 403,
-                    headers: { "Content-Type": "application/json" }
-                }
-            );
+            return new Response(JSON.stringify({ message: "Forbidden" }), {
+                status: 403,
+                headers: { "Content-Type": "application/json" }
+            });
         }
     } catch (error) {
         console.error("Error:", error);
