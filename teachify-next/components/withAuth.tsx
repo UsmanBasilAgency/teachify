@@ -32,6 +32,8 @@ function withAuthorization<P extends object>(
                         setLoading(false);
                         setRedirect(false);
                     }
+                } else {
+                    setLoading(false);
                 }
             }
 
@@ -46,9 +48,7 @@ function withAuthorization<P extends object>(
             return null;
         }
 
-        if (!loading) {
-            return <WrappedComponent {...props} />;
-        }
+        return <WrappedComponent {...props} />;
     };
 
     return withAdminAuth;

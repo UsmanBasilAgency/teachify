@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import { supabase } from "@/utils/supabase/client";
 
@@ -11,6 +11,17 @@ export default function Login() {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const router = useRouter();
+
+    useEffect(() => {
+        async function verifySession() {
+            const { data } = await supabase.auth.getSession();
+            if (data.session?.user) {
+                router.push("/menu");
+            }
+        }
+
+        verifySession();
+    }, []);
 
     const handleSignUp = async () => {
         setLoading(true);
