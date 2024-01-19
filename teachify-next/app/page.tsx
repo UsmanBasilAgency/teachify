@@ -27,6 +27,6 @@ export default async function Home() {
             </>
         );
     } else {
-        return redirect("/menu");
+        return redirect("/login");
     }
 }
