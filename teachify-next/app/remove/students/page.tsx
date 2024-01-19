@@ -6,7 +6,7 @@ import { DarkModeContext } from "@/context/darkModeContext";
 import { withAuthorization } from "@/components/withAuth";
 import { Role } from "@/utils/const";
 
-const AddStudents = ({}) => {
+const RemoveStudents = ({}) => {
     const darkMode = useContext(DarkModeContext);
     const containerClass = darkMode
         ? "dark:bg-gray-800 h-full overflow-auto text-white"
@@ -16,7 +16,7 @@ const AddStudents = ({}) => {
         <div className={`w-full menu-container ${containerClass}`}>
             <Sidebar />
             <h1 className="px-8 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                Add{" "}
+                Remove{" "}
                 <mark className="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">
                     students
                 </mark>
@@ -69,11 +69,11 @@ const AddStudents = ({}) => {
                     type="submit"
                     className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                    Add a new student
+                    Remove a Student
                 </button>
             </form>
         </div>
     );
 };
 
-export default withAuthorization(AddStudents, [Role.admin, Role.professor]);
+export default withAuthorization(RemoveStudents, [Role.admin, Role.professor]);
