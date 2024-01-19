@@ -1,15 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import Link from "next/link";
 import { supabase } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 
 export default function Sidebar() {
+    const [userRole, setUserRole] = useState<string>('');
     const { darkMode, toggleDarkMode } = useDarkMode();
     const router = useRouter();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    useEffect(() => {
+        async function getRole() {
+            const response = await fetch("/api/v1/getRole", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data?.roles) {
+                    setUserRole(data?.roles[0]);
+                }
+            } else {
+                console.error('Failed to fetch user role');
+            }
+        }
+        getRole();
+    }, []);
 
     const toggleDropdown = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -135,7 +157,7 @@ export default function Sidebar() {
                                 </span>
                             </Link>
                         </li>
-                        <li>
+                        {(userRole === 'professor' || userRole === 'admin') && <><li>
                             <Link
                                 href="/logs"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -240,7 +262,7 @@ export default function Sidebar() {
                                     </Link>
                                 </div>
                             )}
-                        </li>
+                        </li></>}
 
                         <li>
                             <Link
