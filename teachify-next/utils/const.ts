@@ -10,8 +10,7 @@ enum Tables {
 enum Role {
     admin = "admin",
     student = "student",
-    professor = "professor",
-    any = "any"
+    professor = "professor"
 }
 
 enum Models {

@@ -1,6 +1,5 @@
-import { Role } from "@/utils/const";
 import LoadingIndicator from "./LoadingIndicator";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AuthorizationInfo } from "@/utils/authTypes";
 import { useTransition } from "react";
@@ -13,33 +12,27 @@ function Authorization({ roles, redirectInfo, children }: AuthorizationInfo) {
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
-        if (roles.includes(Role.any)) {
-            return;
-        } else {
-            startTransition(() =>
-                fetch("/api/v1/validateRole", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        roles
-                    })
+        startTransition(() =>
+            fetch("/api/v1/validateRole", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    roles
                 })
-                    .then((res) => {
-                        if (res.status !== 200 && canRedirect) {
-                            const finalRoute = redirectUrl
-                                ? redirectUrl
-                                : "/menu";
-                            router.push(finalRoute);
-                        }
-                    })
-                    .catch((err) => {
-                        console.error(err);
-                        router.push("/menu");
-                    })
-            );
-        }
+            })
+                .then((res) => {
+                    if (res.status !== 200 && canRedirect) {
+                        const finalRoute = redirectUrl ? redirectUrl : "/menu";
+                        router.push(finalRoute);
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                    router.push("/menu");
+                })
+        );
     }, []);
 
     if (isPending) {
