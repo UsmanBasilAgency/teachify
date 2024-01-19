@@ -15,6 +15,11 @@ enum Role {
 
 enum Models {
     mistral = "mistralai/mistral-7b-instruct",
+
+
+    /*
+        NEVER USE ANY OF THE BELOW
+    */
     huggingFace = "huggingfaceh4/zephyr-7b-beta",
     openChat = "openchat/openchat-7b",
     capybara = "nousresearch/nous-capybara-7b",
