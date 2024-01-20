@@ -6,6 +6,14 @@ import LoadingIndicator from "@/components/LoadingIndicator";
 import { supabase } from "@/utils/supabase/client";
 import { useTransition } from "react";
 
+function getURL() {
+    let url = process?.env?.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000/";
+
+    url = url.includes("http") ? url : `https://${url}`;
+
+    return url;
+}
+
 export default function Login() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -68,7 +76,7 @@ export default function Login() {
         const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: `${window.location.origin}/auth/callback`
+                redirectTo: `${getURL()}auth/callback`
             }
         });
 
