@@ -4,11 +4,21 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import { supabase } from "@/utils/supabase/client";
+import { useTransition } from "react";
+
+function getURL() {
+    let url = process?.env?.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000/";
+
+    url = url.includes("http") ? url : `https://${url}`;
+
+    return url;
+}
 
 export default function Login() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [isPending, startTransition] = useTransition();
     const [error, setError] = useState<string>("");
     const router = useRouter();
 
@@ -16,7 +26,9 @@ export default function Login() {
         async function verifySession() {
             const { data } = await supabase.auth.getSession();
             if (data.session?.user) {
-                router.push("/menu");
+                startTransition(() => {
+                    router.push("/menu");
+                });
             }
         }
 
@@ -64,7 +76,7 @@ export default function Login() {
         const { error } = await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: `${window.location.origin}/auth/callback`
+                redirectTo: `${getURL()}auth/callback`
             }
         });
 
@@ -72,6 +84,10 @@ export default function Login() {
             setError(error.toString());
         }
     };
+
+    if (isPending) {
+        return <LoadingIndicator />;
+    }
 
     return (
         <section className="bg-gray-800 text-gray-100">

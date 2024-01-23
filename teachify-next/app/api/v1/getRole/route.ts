@@ -5,10 +5,10 @@ import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 
 export async function GET(_: NextRequest) {
-    try {
-        const cookieStore = cookies();
-        const supabase = createClient(cookieStore);
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
 
+    try {
         const { data, error } = await supabase
             .from(Tables.userRoles)
             .select("role");
