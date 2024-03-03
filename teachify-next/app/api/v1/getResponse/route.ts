@@ -102,7 +102,6 @@ export async function POST(req: NextRequest) {
         const stream = OpenAIStream(openRouterResponse);
         return new StreamingTextResponse(stream);
     } catch (error) {
-        console.log("hello world")
         console.error("Error:", error);
         return new Response(
             JSON.stringify({ message: "Internal Server Error" }),
