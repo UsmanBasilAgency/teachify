@@ -1,15 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import { useDarkMode } from "@/hooks/useDarkMode";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
+import { DarkModeButton } from "@/components/DarkModeButton";
+import { SidebarToggle } from "@/components/SidebarToggle";
+import SidebarLink from "@/components/SidebarLink";
 
 export default function Sidebar() {
-    const { darkMode, toggleDarkMode } = useDarkMode();
+    const [userRole, setUserRole] = useState<string>('');
     const router = useRouter();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    useEffect(() => {
+        async function getRole() {
+            const response = await fetch("/api/v1/getRole", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data?.roles) {
+                    setUserRole(data?.roles[0]);
+                }
+            } else {
+                console.error('Failed to fetch user role');
+            }
+        }
+        getRole();
+    }, []);
 
     const toggleDropdown = (event: React.MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -29,55 +52,8 @@ export default function Sidebar() {
 
     return (
         <div className="flex justify-between items-center p-4">
-            <button
-                data-drawer-target="default-sidebar"
-                data-drawer-toggle="default-sidebar"
-                aria-controls="default-sidebar"
-                onClick={toggleSidebar}
-                type="button"
-                className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            >
-                <span className="sr-only">Open sidebar</span>
-                <svg
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        clipRule="evenodd"
-                        fillRule="evenodd"
-                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                    ></path>
-                </svg>
-            </button>
-
-            <div className="p-4 flex justify-end">
-                <label className="flex items-center cursor-pointer">
-                    <div className="relative">
-                        <input
-                            type="checkbox"
-                            id="darkModeToggle"
-                            className="sr-only"
-                            onChange={toggleDarkMode}
-                        />
-                        <div className="block bg-gray-600 w-14 h-8 rounded-full dark:bg-gray-700"></div>
-                        <div
-                            className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition ${
-                                darkMode ? "transform translate-x-6" : ""
-                            }`}
-                        ></div>
-                    </div>
-                    <div
-                        className="ml-3 text-gray-700 dark:text-gray-300 font-medium"
-                        onClick={toggleDarkMode}
-                    >
-                        Dark Mode {darkMode ? "On" : "Off"}
-                    </div>
-                </label>
-            </div>
-
+            <SidebarToggle onClick={toggleSidebar} />
+            <DarkModeButton />
             <aside
                 id="default-sidebar"
                 className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
@@ -110,32 +86,22 @@ export default function Sidebar() {
                                 <span className="ms-3">Back</span>
                             </a>
                         </li>
-                        <li>
-                            <Link
-                                href="/menu"
-                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                    className="w-5 h-5"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-                                    />
-                                </svg>
-
-                                <span className="flex-1 ms-3 whitespace-nowrap">
-                                    Courses
-                                </span>
-                            </Link>
-                        </li>
-                        <li>
+                        <SidebarLink href="/menu" label="Courses" icon={<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-5 h-5"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                            />
+                        </svg>} />
+                        
+                        {(userRole === 'professor' || userRole === 'admin') && <><li>
                             <Link
                                 href="/logs"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -240,7 +206,7 @@ export default function Sidebar() {
                                     </Link>
                                 </div>
                             )}
-                        </li>
+                        </li></>}
 
                         <li>
                             <Link
