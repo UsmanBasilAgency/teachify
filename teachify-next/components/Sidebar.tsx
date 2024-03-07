@@ -9,13 +9,17 @@ import { useRouter } from "next/navigation";
 export default function Sidebar() {
     const { darkMode, toggleDarkMode } = useDarkMode();
     const router = useRouter();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
+    const [isRemoveDropdownOpen, setIsRemoveDropdownOpen] = useState(false);
 
-    const toggleDropdown = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        setIsDropdownOpen(!isDropdownOpen);
+    // Function to toggle dropdown state
+    const toggleDropdown = (dropdownType: string) => {
+        if (dropdownType === 'add') {
+            setIsAddDropdownOpen(!isAddDropdownOpen);
+        } else if (dropdownType === 'remove') {
+            setIsRemoveDropdownOpen(!isRemoveDropdownOpen);
+        }
     };
-
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -162,7 +166,7 @@ export default function Sidebar() {
                         </li>
                         <li>
                             <a
-                                onClick={toggleDropdown}
+                                onClick={() => toggleDropdown('add')}
                                 className="cursor-pointer flex items-center justify-between w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                             >
                                 <span className="flex items-center">
@@ -186,7 +190,7 @@ export default function Sidebar() {
                                     </span>
                                 </span>
                             </a>
-                            {isDropdownOpen && (
+                            {isAddDropdownOpen && (
                                 <div className="py-2 space-y-2">
                                     <Link
                                         href="/add/courses"
@@ -243,28 +247,115 @@ export default function Sidebar() {
                         </li>
 
                         <li>
+                            <a
+                                onClick={() => toggleDropdown('remove')}
+                                className="cursor-pointer flex items-center justify-between w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            >
+                                <span className="flex items-center">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-5 h-5"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                        />
+                                    </svg>
+
+                                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                                        Remove
+                                    </span>
+                                </span>
+                            </a>
+                            {isRemoveDropdownOpen && (
+                                <div className="py-2 space-y-2">
+                                    <Link
+                                        href="/remove/students"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white"
+                                    >
+                                        <span className="flex items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth="1.5"
+                                            stroke="currentColor"
+                                            className="w-6 h-6"
+                                        >
+                                            {/* Circle around the minus symbol */}
+                                            <circle cx="12" cy="12" r="9" />
+                                            {/* Minus symbol */}
+                                            <path strokeLinecap="round" d="M6 12h12" />
+                                        </svg>
+
+                                            <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                                                Students
+                                            </span>
+                                        </span>
+                                    </Link>
+                                </div>
+                            )}
+                        </li>
+
+                        <li>
                             <Link
                                 href=""
                                 onClick={handleSignOut}
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <svg
-                                    className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 32 32"
-                                >
-                                    <g data-name="37-User">
-                                        <path d="M10 10V8a6 6 0 0 1 12 0v2a1 1 0 0 0 1 1v2h2v-2a2 2 0 0 0-1-1.73V8A8 8 0 0 0 8 8v1.27A2 2 0 0 0 7 11v2a2 2 0 0 0 1 1.75 8.07 8.07 0 0 0 4 6.16v1.39L4.7 25c-.91.23-4.7 1.37-4.7 4v2a1 1 0 0 0 1 1h14v-2H2v-1c0-.78 1.92-1.7 3.24-2h.11l8-3a1 1 0 0 0 .65-1v-2.69a1 1 0 0 0-.57-.9A6 6 0 0 1 10 14a1 1 0 0 0-1-1v-2a1 1 0 0 0 1-1zM31.71 22.29l-3-3-1.41 1.41 1.29 1.3H21v2h7.59l-1.29 1.29 1.41 1.41 3-3a1 1 0 0 0 0-1.41z" />
-                                        <path d="M23 27a1 1 0 0 1-1 1h-3V18h3a1 1 0 0 1 1 1v1h2v-1a3 3 0 0 0-3-3h-4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h4a3 3 0 0 0 3-3v-1h-2z" />
-                                    </g>
+                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 12L6 12M6 12L8 14M6 12L8 10" 
+                                    stroke="currentColor" 
+                                    stroke-width="1.5" 
+                                    stroke-linecap="round" 
+                                    stroke-linejoin="round"/>
+                                    <path d="M12 21.9827C10.4465 21.9359 9.51995 21.7626 8.87865 21.1213C8.11027 20.3529 8.01382 19.175 8.00171 17M16 21.9983C18.175 21.9862 19.3529 21.8897 20.1213 21.1213C21 20.2426 21 18.8284 21 16V14V10V8C21 5.17157 21 3.75736 20.1213 2.87868C19.2426 2 17.8284 2 15 2H14C11.1715 2 9.75733 2 8.87865 2.87868C8.11027 3.64706 8.01382 4.82497 8.00171 7" 
+                                    stroke="currentColor" 
+                                    stroke-width="1.5" 
+                                    stroke-linecap="round"/>
+                                    <path d="M3 9.5V14.5C3 16.857 3 18.0355 3.73223 18.7678C4.46447 19.5 5.64298 19.5 8 19.5M3.73223 5.23223C4.46447 4.5 5.64298 4.5 8 4.5" 
+                                    stroke="currentColor" 
+                                    stroke-width="1.5" 
+                                    stroke-linecap="round"/>
                                 </svg>
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Logout
                                 </span>
                             </Link>
                         </li>
+                        <li>
+                            <Link
+                                href="/tos"
+                                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            >
+                                
+                                <svg 
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            >
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                                    <line x1="12" y1="9" x2="12" y2="13" />
+                                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                                </svg>
+                                
+                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                    TOS
+                                </span>
+                            </Link>
+                        </li>
+
                     </ul>
                 </div>
             </aside>
