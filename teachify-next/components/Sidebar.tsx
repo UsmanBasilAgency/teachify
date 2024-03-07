@@ -9,13 +9,17 @@ import { useRouter } from "next/navigation";
 export default function Sidebar() {
     const { darkMode, toggleDarkMode } = useDarkMode();
     const router = useRouter();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isAddDropdownOpen, setIsAddDropdownOpen] = useState(false);
+    const [isRemoveDropdownOpen, setIsRemoveDropdownOpen] = useState(false);
 
-    const toggleDropdown = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        setIsDropdownOpen(!isDropdownOpen);
+    // Function to toggle dropdown state
+    const toggleDropdown = (dropdownType: string) => {
+        if (dropdownType === 'add') {
+            setIsAddDropdownOpen(!isAddDropdownOpen);
+        } else if (dropdownType === 'remove') {
+            setIsRemoveDropdownOpen(!isRemoveDropdownOpen);
+        }
     };
-
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -162,7 +166,7 @@ export default function Sidebar() {
                         </li>
                         <li>
                             <a
-                                onClick={toggleDropdown}
+                                onClick={() => toggleDropdown('add')}
                                 className="cursor-pointer flex items-center justify-between w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                             >
                                 <span className="flex items-center">
@@ -186,7 +190,7 @@ export default function Sidebar() {
                                     </span>
                                 </span>
                             </a>
-                            {isDropdownOpen && (
+                            {isAddDropdownOpen && (
                                 <div className="py-2 space-y-2">
                                     <Link
                                         href="/add/courses"
@@ -232,6 +236,62 @@ export default function Sidebar() {
                                                     d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                                                 />
                                             </svg>
+
+                                            <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                                                Students
+                                            </span>
+                                        </span>
+                                    </Link>
+                                </div>
+                            )}
+                        </li>
+
+                        <li>
+                            <a
+                                onClick={() => toggleDropdown('remove')}
+                                className="cursor-pointer flex items-center justify-between w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            >
+                                <span className="flex items-center">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-5 h-5"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                                        />
+                                    </svg>
+
+                                    <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                                        Remove
+                                    </span>
+                                </span>
+                            </a>
+                            {isRemoveDropdownOpen && (
+                                <div className="py-2 space-y-2">
+                                    <Link
+                                        href="/remove/students"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white"
+                                    >
+                                        <span className="flex items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth="1.5"
+                                            stroke="currentColor"
+                                            className="w-6 h-6"
+                                        >
+                                            {/* Circle around the minus symbol */}
+                                            <circle cx="12" cy="12" r="9" />
+                                            {/* Minus symbol */}
+                                            <path strokeLinecap="round" d="M6 12h12" />
+                                        </svg>
 
                                             <span className="flex-1 ml-3 text-left whitespace-nowrap">
                                                 Students
