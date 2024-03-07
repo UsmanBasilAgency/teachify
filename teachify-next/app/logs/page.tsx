@@ -89,12 +89,12 @@ export default function LogsContent({}) {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="pagination flex justify-center space-x-2 mt-4">
+                        <div className="pagination flex justify-center space-x-2 mb-20 mt-4">
                             {Array.from({ length: totalPages }, (_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handlePageChange(index + 1)}
-                                    className={`px-4 py-2 ${currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-white text-black"}`}
+                                    className={`px-4 py-2 rounded-full ${currentPage === index + 1 ? "bg-gray-500 text-white" : "bg-gray-300 text-gray-800"} mx-1`}
                                 >
                                     {index + 1}
                                 </button>
