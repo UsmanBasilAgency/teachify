@@ -63,6 +63,8 @@ export default function Login() {
             password
         });
 
+        console.log('test')
+
         if (error) {
             setError(error.toString());
         } else {
