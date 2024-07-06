@@ -10,7 +10,7 @@ https://github.com/UsmanBasilAgency/teachify/assets/92009321/cf75c5fc-79a3-4b92-
 
 ## Main Developers
 
+-   **Usman Zaheer**
 -   **Basil Yusuf**
--   **Pranay Kumar**
--   **Usman Ahmed**
--   **Faiz Ali**
+-   **Pranay Harpalani**
+-   **Faiz Mustansar**
